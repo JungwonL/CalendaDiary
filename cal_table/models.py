@@ -1,6 +1,7 @@
 from django.db import models
-
+from datetime import datetime
 # Create your models here.
 class Cal_table(models.Model):
-    y = models.IntegerField('year')
-    m = models.IntegerField('month')
+    year = datetime.today().year
+    month = datetime.today().month
+    day = datetime.today().day
