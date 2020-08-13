@@ -27,8 +27,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9584086-cbd6-4090-80d6-98ddabf47feb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/scheduling.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webCalendarDiary/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webCalendarDiary/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,13 +61,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\CalendaDiary\templates" />
+      <recent name="C:\CalendaDiary" />
+      <recent name="C:\CalendaDiary\webProjectlogin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\CalendaDiary\templates" />
       <recent name="C:\CalendaDiary" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\CalendaDiary" />
-      <recent name="C:\CalendaDiary\webProjectlogin" />
     </key>
   </component>
   <component name="RunManager">

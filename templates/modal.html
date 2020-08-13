@@ -1,0 +1,15 @@
+<button class="btn btn-toggle" id='modal' data-target="#myModal" data-toggle="modal">Open</button>
+<div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+                <div class="modal-content">
+                        <div class="modal-header">Scheduling..</div> <!--{{model.name}}Scheduling-->
+                        <div class="modal-body">
+                                {% include "scheduling.html" %}
+                        </div>
+                        <div class="modal-footer">
+                                <button id="confirm_button">저장</button>
+                                <button data-dismiss="modal">닫기</button>
+                        </div>
+                </div>
+        </div>
+</div>
