@@ -21,7 +21,12 @@ from django.urls import path, include
 
 from webCalendarDiary.views import HomeView, UserCreateView, UserCreateDoneTV
 
+from webCalendarDiary.views import *
+
 urlpatterns = [
+
+	path('mypage/', include('mypage.urls')),
+
 	# 로그인, 로그아웃, 비밀번호 변경 등 담당
 	path('accounts/', include('django.contrib.auth.urls')),
 
