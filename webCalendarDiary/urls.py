@@ -27,10 +27,10 @@ urlpatterns = [
 
 	# 회원 가입 및 처리
 	path('accounts/register/', UserCreateView.as_view(), name='register'),
-	path('accounts/register/done/', UserCreateDoneTV.as_view(),
-		 name='register_done'),
+	path('accounts/register/done/', UserCreateDoneTV.as_view(),name='register_done'),
 
 	path('admin/', admin.site.urls),
 	path('', HomeView.as_view(), name='home'),
+	path('schedule/', include('schedule.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
