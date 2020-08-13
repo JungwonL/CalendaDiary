@@ -2,15 +2,65 @@
 {% block title %}Calendar{% endblock %}
 
 {% block extra-style %}
-{% include "base_cal_style.html" %}
+{% include "home_cal_style.html" %}
 {% endblock %}
 
 
 {% block content %}
+
 <div id="calendar"></div>
 <script>
-  const today = new Date();
-  {% include "base_cal_table.html" %}
+function lastMonth() {
+  var d = new Date()
+  var monthOfYear = d.getMonth()
+  d.setMonth(monthOfYear - 1)
+  return getDateStr(d)
+};
+function getParam(sname) {
+    var params = location.search.substr(location.search.indexOf("?") + 1);
+    var sval = "";
+    params = params.split("&");
+    for (var i = 0; i < params.length; i++) {
+        temp = params[i].split("=");
+        if ([temp[0]] == sname) { sval = temp[1]; }
+    }
+    return sval;
+};
 
+const today = new Date();
+const prev = new Date();
+const next = new Date();
+prev.setMonth(today.getMonth() - 1);
+next.setMonth(today.getMonth() + 1);
+let prev_url = 'http://127.0.0.1:8000/' + prev;
+let next_url = 'http://127.0.0.1:8000/' + next;
+
+let calHtml = "";
+calHtml += `
+    <h1 align="center">
+    <button type="button" class="btn btn-outline-white" onclick="show_cal(prev);">
+      <i class="fas fa-chevron-left"></i></button> ${today.getFullYear()}, ${today.getMonth() + 1}
+    <button type="button" class="btn btn-outline-white" onclick="show_cal(next);">
+      <i class="fas fa-chevron-right"></i></button></h1>`;
+
+calHtml += `<h3 align="right"><a href="{% url 'login' %}">로그인</a>&nbsp;<a href="{% url 'register' %}">회원가입</a></h3>`;
+
+{% include "home_cal_table.html" %}
+
+if (today.getMonth() + 1 < 10) {
+    setCalendarData(today.getFullYear(), "0" + (today.getMonth() + 1));
+  } else {
+    setCalendarData(today.getFullYear(), "" + (today.getMonth() + 1));
+  }
+function show_cal(s){
+
+    var target = document.getElementById("calendar");
+    calHtml = "";
+    if (s.getMonth() + 1 < 10) {
+    setCalendarData(s.getFullYear(), "0" + (s.getMonth() + 1));
+  } else {
+    setCalendarData(s.getFullYear(), "" + (s.getMonth() + 1));
+  }
+};
 </script>
 {% endblock %}
