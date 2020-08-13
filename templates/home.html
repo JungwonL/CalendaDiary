@@ -52,10 +52,9 @@ if (today.getMonth() + 1 < 10) {
   } else {
     setCalendarData(today.getFullYear(), "" + (today.getMonth() + 1));
   }
+
 function show_cal(s){
 
-    var target = document.getElementById("calendar");
-    calHtml = "";
     if (s.getMonth() + 1 < 10) {
     setCalendarData(s.getFullYear(), "0" + (s.getMonth() + 1));
   } else {
