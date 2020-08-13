@@ -7,3 +7,5 @@ from django.views.generic.dates import TodayArchiveView
 class HomeView(ListView):
     model = Cal_table
     # date_field = 'modify_dt'
+class CalView(ListView):
+    model = Cal_table

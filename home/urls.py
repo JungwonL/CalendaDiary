@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from cal_table.views import HomeView
+from cal_table.views import HomeView, CalView
 
 urlpatterns = [
-    path('', HomeView.as_view(), name = 'home'),
+    path('', HomeView.as_view(), name='home'),
+    path('cal/<int:year>/<int:month>', CalView.as_view(), name='cal_info'),
     path('admin/', admin.site.urls),
 ]

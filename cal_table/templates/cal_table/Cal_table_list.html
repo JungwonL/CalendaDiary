@@ -1,11 +1,16 @@
 {% extends "base.html" %}
-{% block title %} Calendar {% endblock %}
+{% block title %}Calendar{% endblock %}
+
+{% block extra-style %}
+{% include "base_cal_style.html" %}
+{% endblock %}
+
 
 {% block content %}
-<div>
-    <h1> 8월 </h1>
-{# {object.year} #}
+<div id="calendar"></div>
+<script>
+  const today = new Date();
+  {% include "base_cal_table.html" %}
 
-</div>
-
+</script>
 {% endblock %}
