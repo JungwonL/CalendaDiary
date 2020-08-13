@@ -19,7 +19,7 @@ const setCalendarData = (year, month) => {
                   <i class="fas fa-chevron-left"></i></button> ${year}, ${month}
                 <button type="button" class="btn btn-outline-white" onclick="location.href='https://www.google.com'">
                   <i class="fas fa-chevron-right"></i></button></h1>`;
-    calHtml += `<h3 align="right">로그인:    회원가입:   </h3>`;
+    calHtml += `<h3 align="right"><a href="{% url 'login' %}">로그인</a>&nbsp;<a href="{% url 'register' %}">회원가입</a></h3>`;
     let startDayCount = 1;
     let lastDayCount = 1;
 

@@ -1,5 +1,16 @@
 {% extends "base.html" %}
-{% block title%}Home{% endblock %}
-{% block content%}
-<h1>홈 페이지</h1>
+{% block title %}Calendar{% endblock %}
+
+{% block extra-style %}
+{% include "base_cal_style.html" %}
+{% endblock %}
+
+
+{% block content %}
+<div id="calendar"></div>
+<script>
+  const today = new Date();
+  {% include "base_cal_table.html" %}
+
+</script>
 {% endblock %}
