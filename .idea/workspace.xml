@@ -28,19 +28,16 @@
   <component name="ChangeListManager">
     <list default="true" id="e9584086-cbd6-4090-80d6-98ddabf47feb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base_cal_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_cal_table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base_registration.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/avata_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/avata_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration/logged-out.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/logged-out.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration/password_change_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/password_change_done.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration/password_change_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/password_change_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration/register_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webCalendarDiary/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webCalendarDiary/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webCalendarDiary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/webCalendarDiary/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webCalendarDiary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/webCalendarDiary/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

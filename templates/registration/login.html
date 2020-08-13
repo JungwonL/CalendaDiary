@@ -1,9 +1,12 @@
-{% extends "base_registration.html" %}
+{% extends "base.html" %}
 {% load widget_tweaks %}
 {% block title %}login.html{% endblock %}
 {% block content %}
-<div class="w-100 p-3" style="background-color: #eee;">
-    <h1>로그인</h1>
+<div class="jumbotron">
+<div class="container vertical-center">
+    <form action="." method="post" class="card pt-3">
+        {% csrf_token %}
+    <h1 align="center">로그인</h1>
         {% if form.errors %}
         <div class="alert alert-danger">
             <div class="font-weight-bold">
@@ -12,8 +15,6 @@
             {{ form.errors }}
         </div>
         {% endif %}
-        <form action="." method="post" class="card pt-3">
-            {% csrf_token %}
             <div class="form-group row">
                 {{ form.username| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
                 <div class="col-sm-5">
