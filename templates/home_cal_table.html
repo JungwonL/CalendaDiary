@@ -1,5 +1,5 @@
-const setCalendarData = (year, month) => {
-    let calHtml = "";
+
+  const setCalendarData = (year, month) => {
     const setDate = new Date(year, month - 1, 1);
     const firstDay = setDate.getDate();
     const firstDayName = setDate.getDay();
@@ -14,12 +14,16 @@ const setCalendarData = (year, month) => {
       0
     ).getDate();
 
+<<<<<<< HEAD:templates/base_cal_table.html
     calHtml += `<h1 align="center">
                 <button type="button" class="btn btn-outline-white" onclick="location.href=">
                   <i class="fas fa-chevron-left"></i></button> ${year}, ${month}
                 <button type="button" class="btn btn-outline-white" onclick="location.href='https://www.google.com'">
                   <i class="fas fa-chevron-right"></i></button></h1>`;
     let startDayCount = 1;
+=======
+   let startDayCount = 1;
+>>>>>>> #pre_month:templates/home_cal_table.html
     let lastDayCount = 1;
 
     for (let i = 0; i < 6; i++) {
