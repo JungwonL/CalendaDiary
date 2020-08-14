@@ -5,20 +5,25 @@
 {% include "home_cal_style.html" %}
 {% endblock %}
 
-
 {% block content %}
 
 <div id="calendar"></div>
 <script>
-//count로 달력을 구분한다.
-var count = 0;
 
-//좌우버튼, 년월일, 로그인 회원가입 출력
+//url로 부터 변수 저장, 여기서는 count가 저장된다.
+let url = location.href;
+var cut = url.indexOf("?");
+var check = url.substring(cut + 1)
+var varList = check.split("&")
+var forCount = varList.length
+for(i=0;i < forCount;i++){
+    eval(varList[i])
+}
+
 {% include "home_top.html" %}
 
 //캘린더 출력
 {% include "home_cal_table.html" %}
-
 
 </script>
 {% endblock %}

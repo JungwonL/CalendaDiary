@@ -100,3 +100,8 @@
     return fixNum;
   };
 
+  if (today.getMonth() + 1 < 10) {
+    setCalendarData(today.getFullYear(), "0" + (today.getMonth() + 1));
+  } else {
+    setCalendarData(today.getFullYear(), "" + (today.getMonth() + 1));
+  }

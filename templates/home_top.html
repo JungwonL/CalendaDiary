@@ -1,0 +1,21 @@
+//오늘 날짜 기준으로 달 계산
+const today = new Date();
+today.setMonth(today.getMonth() + count);
+
+//좌우 버튼, 년월 출력
+let calHtml = "";
+calHtml += `
+    <h1 align="center">
+    <button type="button" class="btn btn-outline-white" onclick=button_onclick(-1)>
+      <i class="fas fa-chevron-left"></i></button> ${today.getFullYear()}, ${today.getMonth() + 1}
+    <button type="button" class="btn btn-outline-white" onclick="button_onclick(1)">
+      <i class="fas fa-chevron-right"></i></button></h1>`;
+
+//로그인, 회원가입
+calHtml += `<h3 align="right"><a href="{% url 'login' %}">로그인</a>&nbsp;<a href="{% url 'register' %}">회원가입</a></h3>`;
+
+//버튼 클릭시 count, 링크
+function button_onclick(a){
+    count += a;
+    location.href='http://127.0.0.1:8000/prev?count='+ count;
+}

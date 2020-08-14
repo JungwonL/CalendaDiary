@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path, include
 
-from webCalendarDiary.views import HomeView, UserCreateView, UserCreateDoneTV
+from webCalendarDiary.views import HomeView, CalUpdateView, UserCreateView, UserCreateDoneTV
 
 urlpatterns = [
 	# 로그인, 로그아웃, 비밀번호 변경 등 담당
@@ -33,7 +33,7 @@ urlpatterns = [
 
 	# 달력
 	path('', HomeView.as_view(), name='home'),
-	path('<str:date>', HomeView.as_view(), name='home'),
+	path('prev/', CalUpdateView.as_view(), name='cal'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
