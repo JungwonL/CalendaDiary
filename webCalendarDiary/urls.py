@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path, include
 
-from webCalendarDiary.views import HomeView, UserCreateView, UserCreateDoneTV
+from webCalendarDiary.views import HomeView, UserCreateView, UserCreateDoneTV, CalUpdateView
 
 from webCalendarDiary.views import *
 
@@ -32,10 +32,12 @@ urlpatterns = [
 
 	# 회원 가입 및 처리
 	path('accounts/register/', UserCreateView.as_view(), name='register'),
-	path('accounts/register/done/', UserCreateDoneTV.as_view(),
-		 name='register_done'),
+	path('accounts/register/done/', UserCreateDoneTV.as_view(), name='register_done'),
 
 	path('admin/', admin.site.urls),
+
+	# 달력
 	path('', HomeView.as_view(), name='home'),
+	path('prev/', CalUpdateView.as_view(), name='cal'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

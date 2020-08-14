@@ -2,16 +2,13 @@
 {% block title %}Calendar{% endblock %}
 
 {% block extra-style %}
-<<<<<<< HEAD
-{% include "menu.html" %}
-{% include "base_cal_style.html" %}
-=======
 {% include "home_cal_style.html" %}
->>>>>>> #pre_month
 {% endblock %}
-{% block content %}
 
+{% block content %}
+{% include "menu.html" %}
 <div id="calendar"></div>
+
 <script>
 //count로 달력을 구분한다.
 var count = 0;
@@ -21,7 +18,6 @@ var count = 0;
 
 //캘린더 출력
 {% include "home_cal_table.html" %}
-
-
 </script>
+
 {% endblock %}
