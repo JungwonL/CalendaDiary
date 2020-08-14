@@ -7,12 +7,8 @@ let calHtml = "";
 calHtml += `
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark " style="height: 100px;" >
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    {# 홈버튼 #}
+    <div class="navbar-nav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item btn btn-dark">
                 <a class="nav-link text-white" href="{% url 'home' %}">
@@ -21,8 +17,8 @@ calHtml += `
         </ul>
     </div>
 
-
-    <div class="mx-auto order-0">
+    {# 년, 월 #}
+    <div class="navbar-nav mx-auto order-0">
         <h1 align="center" class="text-white">
             <button type="button" class="btn btn-outline-white" onclick=button_onclick(-1)>
                 <i class="fas fa-chevron-left text-white"></i></button>
@@ -32,8 +28,8 @@ calHtml += `
         </h1>
     </div>
 
-
-    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    {# 아바타, 로그인, 회원가입 #}
+    <div class="navbar-nav" >
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown mx-1 btn btn-dark">
                 {% if user.is_active %}
