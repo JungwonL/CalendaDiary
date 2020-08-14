@@ -2,9 +2,10 @@ from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 
+from schedule.views import ScheduleLV
 
 # TemplateView
-class HomeView(TemplateView):
+class HomeView(ScheduleLV):
 	template_name = 'home.html'
 
 
@@ -17,3 +18,4 @@ class UserCreateView(CreateView):
 
 class UserCreateDoneTV(TemplateView):
 	template_name = 'registration/register_done.html'
+

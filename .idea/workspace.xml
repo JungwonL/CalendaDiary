@@ -28,12 +28,16 @@
   <component name="ChangeListManager">
     <list default="true" id="e9584086-cbd6-4090-80d6-98ddabf47feb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginPage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/loginPage/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schedule/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schedule/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aa.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schedule/templates/schedule/schedule_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/templates/schedule/schedule_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schedule/templates/schedule/schedule_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/templates/schedule/schedule_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schedule/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schedule/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webCalendarDiary/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webCalendarDiary/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base_cal_style.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_cal_style.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/scheduling.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/scheduling.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webCalendarDiary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/webCalendarDiary/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webCalendarDiary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/webCalendarDiary/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,18 +65,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/schedule/templates/schedule" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\CalendaDiary\schedule\templates\schedule" />
+      <recent name="C:\CalendaDiary\templates" />
+      <recent name="C:\CalendaDiary" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\CalendaDiary\schedule\templates" />
+      <recent name="C:\CalendaDiary\templates\schedule" />
       <recent name="C:\CalendaDiary\templates" />
       <recent name="C:\CalendaDiary" />
       <recent name="C:\CalendaDiary\webProjectlogin" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\CalendaDiary\templates" />
-      <recent name="C:\CalendaDiary" />
     </key>
   </component>
   <component name="RunManager">

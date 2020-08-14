@@ -9,13 +9,15 @@
 {% block content %}
 <button class="btn btn-toggle" id='modal' data-target="#myModal" data-toggle="modal">Open</button>
 <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-                <div class="modal-content">
+        <div class="modal-dialog modal-fullsize">
+                <div class="modal-content modal-fullsize">
                         <div class="modal-header">Scheduling..</div> <!--{{model.name}}Scheduling-->
                         <div class="modal-body">
-                                {% include "scheduling.html" %}
+                                {% include "schedule/schedule_list.html" %}
                         </div>
                         <div class="modal-footer">
+                                <a href="{url './schedule/schedule_list.html'}">
+                                <button id="write_button">추가</button></a>
                                 <button id="confirm_button">저장</button>
                                 <button data-dismiss="modal">닫기</button>
                         </div>
