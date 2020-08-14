@@ -18,13 +18,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path, include
-<<<<<<< HEAD
 
-from webCalendarDiary.views import HomeView, UserCreateView, UserCreateDoneTV, CalUpdateView
-
-=======
-from webCalendarDiary.views import HomeView, UserCreateView, UserCreateDoneTV
->>>>>>> #add_mypage
 from webCalendarDiary.views import *
 
 urlpatterns = [
