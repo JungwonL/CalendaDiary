@@ -2,11 +2,15 @@
 {% load widget_tweaks %}
 {% block title %}login.html{% endblock %}
 {% block content %}
-<img src="{% url 'avata' user.id%}" class="avata-lg">
-<h1>유저닉네임임:{{user.username}}</h1>
+<img src="{% url 'avata' user.id%}" class="avata">
+<h1>수정을 해볼까아</h1>
+<h1>유저 ID임:{{user.username}}</h1>
 <h2>유저 이름 : {{user.first_name}}</h2>
 <h2>유저 성 : {{user.last_name}}</h2>
 <h2>유저 이메일 : {{user.email}}</h2>
-<h1><a href="{% url 'mypage_form'%}">유저 정보 변경하기</a></h1>
+<div class = "form-group">
+    <input type="text" name="my_name">
+    <input type="">
+</div>
 </body>
 {% endblock %}
