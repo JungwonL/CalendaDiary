@@ -38,20 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-<<<<<<< HEAD
-    'loginPage.apps.LoginpageConfig', #로그인페이지config
-    'mypage.apps.mypageConfig', #개인정보페이지config
-
-
-    'widget_tweaks', #로그인 기능 활성화
-
-
-=======
     'loginPage.apps.LoginpageConfig',
     
     'widget_tweaks',
     'schedule.apps.ScheduleConfig',
->>>>>>> #5_scheduling
+    'mypage.apps.mypageConfig', #개인정보페이지config
 ]
 
 MIDDLEWARE = [
