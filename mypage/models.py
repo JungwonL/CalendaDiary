@@ -20,4 +20,6 @@ class userInfo(models.Model):
 							   blank =True, help_text='simple address')
 	nickname = models.CharField(verbose_name='닉네임',max_length=12,blank=True, help_text='nickname')
 
+	def __str__(self):
+		return self.owner
 
