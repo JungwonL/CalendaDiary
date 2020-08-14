@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}schedule_list.html{% endblock %}
+{% block content %}
+<div>
+    <h3>Schedule List</h3>
+    <ul>
+        {% for schedule in schedule_list %}
+        <li>
+            [{{schedule.schedule_date|date:"Y년 m월 d일"}}]: {{schedule.title}}/ {{schedule.description}}
+        </li><br/>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
