@@ -1,0 +1,33 @@
+<!--include style for modal
+{% block extra-style %}
+{% include "base_cal_table.html" %}
+
+<script>
+    var myModal = new Example.Modal({
+        id: "modal" // 모달창 아이디 지정
+    });
+
+    $("#button").click(function() {
+        myModal.show(); // 모달창 보여주기
+    });
+
+    // 모달 창 안에 있는 확인 버튼에 이벤트 걸기
+    $("#confirm_button").click(function() {
+        alert("나는 모달창이다.");
+        myModal.hide(); // 모달창 감추기
+    });
+
+{% endblock %} -->
+
+
+<!-- 스크립트 {% include "base_cal_table.html" %} -->
+<!--{% block content %}-->
+
+
+<h3>스케줄링 내용</h3>
+
+
+
+<!--</script>-->
+{% endblock %}
+

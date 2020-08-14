@@ -8,9 +8,10 @@ from django.http import HttpResponse
 
 import os
 
+from schedule.views import ScheduleLV
 
 # TemplateView
-class HomeView(TemplateView):
+class HomeView(ScheduleLV):
 	template_name = 'home.html'
 class CalUpdateView(TemplateView):
 	template_name = 'home_cal_update.html'
@@ -26,6 +27,7 @@ class UserCreateView(CreateView):
 class UserCreateDoneTV(TemplateView):
 	template_name = 'registration/register_done.html'
 
+<<<<<<< HEAD
 
 # -- Avata Creation
 class AvataView(LoginRequiredMixin, CreateView):
@@ -54,3 +56,5 @@ def avata_view(request, id):
 	except:  # 등록된 아바타가 없는 경우 디폴트 아바타 이미지 사용
 		file_path = os.path.join(settings.MEDIA_ROOT, 'avatas/avata.jpg')
 	return HttpResponse(open(file_path, 'rb'), content_type="image/*")
+=======
+>>>>>>> #5_scheduling

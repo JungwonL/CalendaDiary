@@ -19,7 +19,12 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path, include
 
+<<<<<<< HEAD
 from webCalendarDiary.views import *
+=======
+
+from webCalendarDiary.views import HomeView, UserCreateView, UserCreateDoneTV
+>>>>>>> #5_scheduling
 
 urlpatterns = [
 
@@ -31,12 +36,21 @@ urlpatterns = [
 
 	# 회원 가입 및 처리
 	path('accounts/register/', UserCreateView.as_view(), name='register'),
+<<<<<<< HEAD
 	path('accounts/register/done/', UserCreateDoneTV.as_view(), name='register_done'),
+=======
+	path('accounts/register/done/', UserCreateDoneTV.as_view(),name='register_done'),
+>>>>>>> #5_scheduling
 
 	path('admin/', admin.site.urls),
 
 	# 달력
 	path('', HomeView.as_view(), name='home'),
+<<<<<<< HEAD
 	path('prev/', CalUpdateView.as_view(), name='cal'),
+=======
+	path('schedule/', include('schedule.urls')),
+
+>>>>>>> #5_scheduling
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
