@@ -18,13 +18,12 @@ from django.conf import settings
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path, include
-
 from webCalendarDiary.views import HomeView, UserCreateView, UserCreateDoneTV
-
 from webCalendarDiary.views import *
 
 urlpatterns = [
 
+	#개인정보페이지
 	path('mypage/', include('mypage.urls')),
 
 	# 로그인, 로그아웃, 비밀번호 변경 등 담당

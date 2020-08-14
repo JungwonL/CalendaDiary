@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block title %}login.html{% endblock %}
+{% block content %}
+<img src="{% url 'avata' user.id%}" class="avata-lm">
+<h1>유저닉네임임:{{user.username}}</h1>
+<h2>유저 이름 : {{user.first_name}}</h2>
+<h2>유저 성 : {{user.last_name}}</h2>
+<h2>유저 이메일 : {{user.email}}</h2>
+</body>
+{% endblock %}
