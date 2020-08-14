@@ -5,12 +5,65 @@ today.setMonth(today.getMonth() + count);
 //좌우 버튼, 년월 출력
 let calHtml = "";
 calHtml += `
-    <h1 align="center">
-    <button type="button" class="btn btn-outline-white" onclick=button_onclick(-1)>
-      <i class="fas fa-chevron-left"></i></button> ${today.getFullYear()}, ${today.getMonth() + 1}
-    <button type="button" class="btn btn-outline-white" onclick="button_onclick(1)">
-      <i class="fas fa-chevron-right"></i></button></h1>`;
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark " style="height: 100px;" >
 
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item btn btn-dark">
+                <a class="nav-link text-white" href="{% url 'home' %}">
+                    <i class="fas fa-home"></i></a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="mx-auto order-0">
+        <h1 align="center" class="text-white">
+            <button type="button" class="btn btn-outline-white" onclick=button_onclick(-1)>
+                <i class="fas fa-chevron-left text-white"></i></button>
+            ${today.getFullYear()}, ${today.getMonth() + 1}
+            <button type="button" class="btn btn-outline-white" onclick="button_onclick(1)">
+                <i class="fas fa-chevron-right text-white"></i></button>
+        </h1>
+    </div>
+
+
+    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown mx-1 btn btn-dark">
+                {% if user.is_active %}
+                <a class="nav-link dropdown-toggle text-white" href="#"
+                   data-toggle="dropdown">
+                    <img src="{% url 'avata' user.id%}" class="avata-sm">
+                    <i class="fas fa-user"></i>
+                    &nbsp{{user.username }} </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'a">Mypage</a>
+                    <a class="dropdown-item" href="{% url 'avata_add' user.id %}">Avata</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                    <a class="dropdown-item" href="{% url 'password_change' %}">
+                        Change Password</a>
+                </div>
+                {% else %}
+                <a class="nav-link dropdown-toggle ml-auto text-white" href="#"
+                   data-toggle="dropdown">
+                    <i class="fas fa-user"></i>&nbsp Anonymous</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                    <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+                </div>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+
+</nav>
+`;
 
 //버튼 클릭시 count, 링크
 function button_onclick(a){

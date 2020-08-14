@@ -1,107 +1,61 @@
+const setCalendarData = (year, month) => {
+  const setDate = new Date(year, month - 1, 1);
+  const firstDay = setDate.getDate();
+  const firstDayName = setDate.getDay();
+  const lastDay = new Date(
+    today.getFullYear(),
+    today.getMonth() + 1,
+    0
+  ).getDate();
+  const prevLastDay = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    0
+  ).getDate();
 
-  const setCalendarData = (year, month) => {
-    const setDate = new Date(year, month - 1, 1);
-    const firstDay = setDate.getDate();
-    const firstDayName = setDate.getDay();
-    const lastDay = new Date(
-      today.getFullYear(),
-      today.getMonth() + 1,
-      0
-    ).getDate();
-    const prevLastDay = new Date(
-      today.getFullYear(),
-      today.getMonth(),
-      0
-    ).getDate();
+ let startDayCount = 1;
+  let lastDayCount = 1;
 
-   let startDayCount = 1;
-    let lastDayCount = 1;
+  for (let i = 0; i < 6; i++) {
+    for (let j = 0; j < 7; j++) {
+      //이전 달
+      if (i == 0 && j < firstDayName) {
+        calHtml +=
+          `<div style='background-color:#343A40;' class='calendar__day horizontalGutter text-white-50'><span>${(prevLastDay - (firstDayName - 1) + j)}</span><span></span></div>`;
+      }
+      //이번 달
+      else if (i == 0 && j >= firstDayName) {
+        calHtml +=
+        `<div style='background-color:#343A40;' class='calendar__day horizontalGutter text-white '><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
+      }
+      else if (i > 0 && startDayCount <= lastDay) {
+        calHtml +=`<div style='background-color:#343A40;'class='calendar__day horizontalGutter text-white'><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
+      }
 
-    for (let i = 0; i < 6; i++) {
-      for (let j = 0; j < 7; j++) {
-        //이전 달
-        if (i == 0 && j < firstDayName) {
-          if (j == 0) {
-            calHtml +=
-              //onclick = "" 사용해서 다른 페이지로 넘어갈 수 있음.
-              `<div style='background-color:#FFFFFF;' class='calendar__day horizontalGutter'><span>${(prevLastDay - (firstDayName - 1) + j)}</span><span></span></div>`;
-          } else if (j == 6) {
-            calHtml +=
-              `<div style='background-color:#FFFFFF;' class='calendar__day'><span>${(prevLastDay - (firstDayName - 1) + j)}</span><span></span></div>`;
-          } else {
-            calHtml +=
-              `<div style='background-color:#FFFFFF;' class='calendar__day horizontalGutter'><span>${(prevLastDay - (firstDayName - 1) + j)}</span><span></span></div>`;
-          }
-        }
-        //이번 달 시작
-        else if (i == 0 && j == firstDayName) {
-          if (j == 0) {
-            calHtml +=
-              `<div style='background-color:#F6F6F6;' class='calendar__day horizontalGutter'><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
-          } else if (j == 6) {
-            calHtml +=
-              `<div style='background-color:#F6F6F6;' class='calendar__day'><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
-          } else {
-            calHtml +=
-              `<div style='background-color:#F6F6F6;' class='calendar__day horizontalGutter'><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
-          }
-        }
-        else if (i == 0 && j > firstDayName) {
-          if (j == 0) {
-            calHtml +=
-              `<div style='background-color:#F6F6F6' class='calendar__day horizontalGutter'><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
-          } else if (j == 6) {
-            calHtml +=
-              `<div style='background-color:#F6F6F6' class='calendar__day'><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
-          } else {
-            calHtml +=
-              `<div style='background-color:#F6F6F6' class='calendar__day horizontalGutter'><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
-          }
-        }
-        else if (i > 0 && startDayCount <= lastDay) {
-          if (j == 0) {
-            calHtml +=
-              `<div style='background-color:#F6F6F6;'class='calendar__day horizontalGutter verticalGutter'><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
-          } else if (j == 6) {
-            calHtml +=
-              `<div style='background-color:#F6F6F6;'class='calendar__day verticalGutter'><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
-          } else {
-            calHtml +=
-              `<div style='background-color:#F6F6F6;'class='calendar__day horizontalGutter verticalGutter'><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
-          }
-        }
-        // 다음 달
-        else if (startDayCount > lastDay) {
-          if (j == 0) {
-            calHtml +=
-              `<div style='background-color:#FFFFFF;' class='calendar__day horizontalGutter verticalGutter'><span>${lastDayCount++}</span><span></span></div>`;
-          } else if (j == 6) {
-            calHtml +=
-              `<div style='background-color:#FFFFFF;' class='calendar__day verticalGutter'><span>${lastDayCount++}</span><span></span></div>`;
-          } else {
-            calHtml +=
-              `<div style='background-color:#FFFFFF;' class='calendar__day horizontalGutter verticalGutter'><span>${lastDayCount++}</span><span></span></div>`;
-          }
-        }
+      // 다음 달
+      else if (startDayCount > lastDay) {
+        calHtml +=
+            `<div style='background-color:#343A40;' class='calendar__day horizontalGutter text-white-50'><span>${lastDayCount++}</span><span></span></div>`;
       }
     }
-    document
-      .querySelector("#calendar")
-      .insertAdjacentHTML("beforeend", calHtml);
-  };
-
-  const setFixDayCount = number => {
-    let fixNum = "";
-    if (number < 10) {
-      fixNum = "0" + number;
-    } else {
-      fixNum = number;
-    }
-    return fixNum;
-  };
-
-  if (today.getMonth() + 1 < 10) {
-    setCalendarData(today.getFullYear(), "0" + (today.getMonth() + 1));
-  } else {
-    setCalendarData(today.getFullYear(), "" + (today.getMonth() + 1));
   }
+  document
+    .querySelector("#calendar")
+    .insertAdjacentHTML("beforeend", calHtml);
+};
+
+const setFixDayCount = number => {
+  let fixNum = "";
+  if (number < 10) {
+    fixNum = "0" + number;
+  } else {
+    fixNum = number;
+  }
+  return fixNum;
+};
+
+if (today.getMonth() + 1 < 10) {
+  setCalendarData(today.getFullYear(), "0" + (today.getMonth() + 1));
+} else {
+  setCalendarData(today.getFullYear(), "" + (today.getMonth() + 1));
+}
