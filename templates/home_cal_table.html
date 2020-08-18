@@ -26,27 +26,27 @@ const setCalendarData = (year, month) => {
       //이전 달
       if (i == 0 && j < firstDayName) {
         calHtml +=
-          `<div type="button" id="modal" style='background-color:#343A40;' class='calendar__day text-white-50' data-toggle="modal" data-target="#myModal">
+          `<div type="button" id="modal" style='background-color:#343A40;' class='calendar_day text-white-50' data-toggle="modal" data-target="#myModal">
             ${(prevLastDay - (firstDayName - 1) + j)}</div>`;
       }
 
-      //이번 달 type="button" id="modal" data-toggle="modal" data-target="#myModal"
+      //이번 달
       else if ((i == 0 && j >= firstDayName)||(i > 0 && startDayCount <= lastDay)) {
         //오늘
         if (startDayCount == today.getDate() && setDate.getMonth() == today.getMonth()){
           calHtml +=
-          `<div type="button" id="modal" class='calendar__day today' data-toggle="modal" data-target="#myModal">${startDayCount}<span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
+          `<div type="button" id="modal" class='calendar_day today' data-toggle="modal" data-target="#myModal">${startDayCount}<span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
         }
         else{
           calHtml +=
-          `<div type="button" id="modal" class='calendar__day' data-toggle="modal" data-target="#myModal">${startDayCount}<span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
+          `<div type="button" id="modal" class='calendar_day' data-toggle="modal" data-target="#myModal">${startDayCount}<span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
         }
       }
 
       // 다음 달
       else if (startDayCount > lastDay) {
         calHtml +=
-            `<div type="button" id="modal" class='calendar__day text-white-50' data-toggle="modal" data-target="#myModal">
+            `<div type="button" id="modal" class='calendar_day text-white-50' data-toggle="modal" data-target="#myModal">
             ${lastDayCount++}</div>`;
       }
     }
@@ -55,6 +55,7 @@ const setCalendarData = (year, month) => {
     .querySelector("#calendar")
     .insertAdjacentHTML("beforeend", calHtml);
 
+  //CLICK, HOVER 함수
   let items = document.getElementsByClassName('calendar__day')
   let Today = document.getElementsByClassName('today')
 
