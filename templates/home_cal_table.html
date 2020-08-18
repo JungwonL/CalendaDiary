@@ -16,26 +16,49 @@ const setCalendarData = (year, month) => {
  let startDayCount = 1;
   let lastDayCount = 1;
 
+let scheduleDate
+
   for (let i = 0; i < 6; i++) {
     for (let j = 0; j < 7; j++) {
       //이전 달
       if (i == 0 && j < firstDayName) {
         calHtml +=
-          `<div type="button" id="modal" style='background-color:#343A40;' class='calendar__day horizontalGutter text-white-50' data-toggle="modal" data-target="#myModal"><span>${(prevLastDay - (firstDayName - 1) + j)}</span><span></span></div>`;
+        `<div type="button"
+              onclick="location.href='{% url 'schedule:index' %}?date=${year}${month}${setFixDayCount(startDayCount)}'"
+              style='background-color:#343A40;' class='calendar__day horizontalGutter text-white-50'>
+          <span>${(prevLastDay - (firstDayName - 1) + j)}</span>
+          <span></span>
+          </div>`;
       }
       //이번 달
       else if (i == 0 && j >= firstDayName) {
         calHtml +=
-        `<div type="button" id="modal" style='background-color:#343A40;' class='calendar__day horizontalGutter text-white' data-toggle="modal" data-target="#myModal"><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
+        `<div type="button"
+              onclick="location.href='{% url 'schedule:index' %}?date=${year}${month}${setFixDayCount(startDayCount)}'"
+              style='background-color:#343A40;'
+              class='calendar__day horizontalGutter text-white'>
+          <span>${startDayCount++}</span>
+          </div>`;
       }
       else if (i > 0 && startDayCount <= lastDay) {
-        calHtml +=`<div type="button" id="modal" style='background-color:#343A40;'class='calendar__day horizontalGutter text-white' data-toggle="modal" data-target="#myModal"><span>${startDayCount}</span><span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
+        calHtml +=
+        `<div type="button"
+              onclick="location.href='{% url 'schedule:index' %}?date=${year}${month}${setFixDayCount(startDayCount)}'"
+              style='background-color:#343A40;'
+              class='calendar__day horizontalGutter text-white'><span>${startDayCount}</span>
+          <span id='${year}${month}${setFixDayCount(startDayCount++)}'></span>
+          </div>`;
       }
 
       // 다음 달
       else if (startDayCount > lastDay) {
         calHtml +=
-            `<div type="button" id="modal" style='background-color:#343A40;' class='calendar__day horizontalGutter text-white-50' data-toggle="modal" data-target="#myModal"><span>${lastDayCount++}</span><span></span></div>`;
+        `<div type="button"
+              onclick="location.href='{% url 'schedule:index' %}?date=${year}${month}${setFixDayCount(startDayCount)}'"
+              style='background-color:#343A40;' class='calendar__day horizontalGutter text-white-50'>
+          <span>${lastDayCount++}</span>
+          <span></span>
+          </div>`;
       }
     }
   }

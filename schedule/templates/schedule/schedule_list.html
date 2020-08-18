@@ -1,22 +1,25 @@
+{% extends "base.html" %}
+{% block title %}schedule_list.html{% endblock %}
+{% block content %}
 <div>
 <h3>Schedule List!!!!!!!!!!!!!</h3>
-    {% if user.is_active %}
+    <h1>{{schedulingDate}}</h1>
+    {% if user.is_active%}
         <ul>
-            {% for schedule in schedule_list %}
+            {% for schedule in user.schedule_set.all %}
             <li>
                 [{{schedule.schedule_date|date:"Y년 m월 d일"}}]: {{schedule.title}}/ {{schedule.description}}
             </li><br/>
             {% endfor %}
         </ul>
+
         <div class="text-right mr-3">
-        <a href="{% url 'schedule:add' %}" class="btn btn-info btn-sn">
-            <i class="fas fa-pencil-alt"></i>추가</a>
+        <a href="{% url 'schedule:add' %}" class="btn btn-dark btn-sn">
+            <i class="fas fa-pencil-alt"></i>일정 추가</a>
         </div>
+
     {% else %}
-        <p>스케줄을 추가해주세요 :)</p>
-        <div class="text-right mr-3">
-        <a href="{% url 'schedule:add' %}" class="btn btn-info btn-sn">
-            <i class="fas fa-pencil-alt"></i>추가</a>
-        </div>
+        <p>로그인 해주세요 :)</p>
     {% endif %}
 </div>
+{% endblock %}

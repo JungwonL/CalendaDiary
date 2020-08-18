@@ -3,7 +3,6 @@
 {% block content %}
 <div>
 <h3>schedule Schedule</h3>
-<!--    for schedule in schedule_list.user_id_fk[user.id] -->
     {% if user.is_active %}
         <ul>
             {% for schedule in schedule.user_id_fk(2) %}
