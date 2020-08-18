@@ -1,12 +1,9 @@
-{% block extra-style %}
-{% include "modal_style.html" %}
-{% endblock %}
-
 <button class="btn btn-toggle" id='modal' data-target="#myModal" data-toggle="modal">Open</button>
+
 <div class="modal fade" id="myModal">
         <div class="modal-dialog modal-fullsize">
                 <div class="modal-content modal-fullsize">
-                        <div class="modal-header">Scheduling..</div> <!--{{model.name}}Scheduling-->
+                        <div class="modal-header">Scheduling..</div>
                         <div class="modal-body">
                                 {% include "schedule/schedule_list.html" %}
                         </div>
@@ -20,7 +17,3 @@
         </div>
 </div>
 
-
-<!--# TemplateView-->
-<!--class HomeView(ScheduleLV):-->
-<!--	template_name = 'home.html'-->

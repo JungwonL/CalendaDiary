@@ -28,13 +28,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e9584086-cbd6-4090-80d6-98ddabf47feb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schedule/templates/schedule/schedule_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/templates/schedule/schedule_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home_cal_style.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_cal_style.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home_cal_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_cal_table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home_cal_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_cal_update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home_top.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_top.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webCalendarDiary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/webCalendarDiary/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webCalendarDiary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/webCalendarDiary/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modal.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
