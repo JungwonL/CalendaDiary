@@ -23,18 +23,15 @@ let scheduleDate
       //이전 달
       if (i == 0 && j < firstDayName) {
         calHtml +=
-        `<div type="button"
-              onclick="location.href='{% url 'schedule:index' %}?date=${year}${month}${setFixDayCount(startDayCount)}'"
-              style='background-color:#343A40;' class='calendar__day horizontalGutter text-white-50'>
+        `<div style='background-color:#343A40;' class='calendar__day horizontalGutter text-white-50'>
           <span>${(prevLastDay - (firstDayName - 1) + j)}</span>
-          <span></span>
           </div>`;
       }
       //이번 달
       else if (i == 0 && j >= firstDayName) {
         calHtml +=
         `<div type="button"
-              onclick="location.href='{% url 'schedule:index' %}?date=${year}${month}${setFixDayCount(startDayCount)}'"
+              onclick="location.href='/schedule/schedule/${year}-${month}-${setFixDayCount(startDayCount)}'"
               style='background-color:#343A40;'
               class='calendar__day horizontalGutter text-white'>
           <span>${startDayCount++}</span>
@@ -43,7 +40,7 @@ let scheduleDate
       else if (i > 0 && startDayCount <= lastDay) {
         calHtml +=
         `<div type="button"
-              onclick="location.href='{% url 'schedule:index' %}?date=${year}${month}${setFixDayCount(startDayCount)}'"
+              onclick="location.href='/schedule/schedule/${year}-${month}-${setFixDayCount(startDayCount)}'"
               style='background-color:#343A40;'
               class='calendar__day horizontalGutter text-white'><span>${startDayCount}</span>
           <span id='${year}${month}${setFixDayCount(startDayCount++)}'></span>
@@ -53,9 +50,7 @@ let scheduleDate
       // 다음 달
       else if (startDayCount > lastDay) {
         calHtml +=
-        `<div type="button"
-              onclick="location.href='{% url 'schedule:index' %}?date=${year}${month}${setFixDayCount(startDayCount)}'"
-              style='background-color:#343A40;' class='calendar__day horizontalGutter text-white-50'>
+        `<div style='background-color:#343A40;' class='calendar__day horizontalGutter text-white-50'>
           <span>${lastDayCount++}</span>
           <span></span>
           </div>`;

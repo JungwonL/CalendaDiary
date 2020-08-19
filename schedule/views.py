@@ -11,16 +11,30 @@ class ScheduleLV(ListView):
     model = Schedule
     context_object_name = 'schedule_list'
 
+    def get_queryset(self):     # Schedule.objects.all()
+        date = self.kwargs["date"]
+        return super().get_queryset().filter(schedule_date )
+
+    # def get_context_data(self, **kwargs):
+    #     pass
+    #
+    #     # context = super().get_context_data(**kwargs)
+    #     # context["date"] = date
+    #     # schedule = self.get_object()
+    #     # schedule.save()
+    #     # return context
+
 
 class ScheduleDV(DetailView):
     model = Schedule
     context_object_name = 'schedule'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        schedule = self.get_object()
-        schedule.save()
-        return context
+    def get_object(self):
+        date = self.kwargs["date"]
+        print(date)
+        return ""
+        # return Schedule.objects.get(schedule_date = date)
+
 
 
 class ScheduleCreateView(LoginRequiredMixin, CreateView):

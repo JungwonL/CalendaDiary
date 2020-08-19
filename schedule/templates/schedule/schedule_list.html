@@ -2,24 +2,38 @@
 {% block title %}schedule_list.html{% endblock %}
 {% block content %}
 <div>
-<h3>Schedule List!!!!!!!!!!!!!</h3>
-    <h1>{{schedulingDate}}</h1>
-    {% if user.is_active%}
-        <ul>
-            {% for schedule in user.schedule_set.all %}
-            <li>
-                [{{schedule.schedule_date|date:"Y년 m월 d일"}}]: {{schedule.title}}/ {{schedule.description}}
-            </li><br/>
-            {% endfor %}
-        </ul>
+<!--    <h3 id="date">해당날짜출력</h3>-->
+    <h3>{{schedule.schedule_date}}</h3>
+        {% if user.is_active%}
+            <ul>
+                {% for schedule in user.schedule_set.all %}
+                <li>
+                    [{{schedule.schedule_date|date:"Y년 m월 d일"}}]: {{schedule.title}}/ {{schedule.description}}
+                </li><br/>
+                {% endfor %}
+            </ul>
 
-        <div class="text-right mr-3">
-        <a href="{% url 'schedule:add' %}" class="btn btn-dark btn-sn">
-            <i class="fas fa-pencil-alt"></i>일정 추가</a>
-        </div>
+            <div class="text-right mr-3">
+            <a href="{% url 'schedule:add' %}" class="btn btn-dark btn-sn">
+                <i class="fas fa-pencil-alt"></i>일정 추가</a>
+            </div>
 
-    {% else %}
-        <p>로그인 해주세요 :)</p>
-    {% endif %}
+        {% else %}
+            <p>로그인 해주세요 :)</p>
+            <button class="btn btn-dark" onclick="location.href='{% url 'login' %}'" >Login</button>
+        {% endif %}
 </div>
+
+<!--url에서 날짜 파라미터 받아오기-->
+<!--<script>-->
+<!--    function get_query(){-->
+<!--        var url = document.location.href;-->
+<!--        var qs = url.substring(url.indexOf('?')).slice(-8);-->
+<!--        return qs;-->
+<!--    }-->
+<!--    var result = get_query();-->
+<!--    console.log(result);-->
+<!--    document.getElementById("date").innerHTML=result;  //날짜 html로 전달-->
+<!--</script>-->
+
 {% endblock %}
