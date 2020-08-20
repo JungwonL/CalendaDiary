@@ -4,6 +4,7 @@ from schedule.models import Schedule
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
+import datetime
 
 # Create your views here.
 
@@ -11,9 +12,12 @@ class ScheduleLV(ListView):
     model = Schedule
     context_object_name = 'schedule_list'
 
-    def get_queryset(self):     # Schedule.objects.all()
-        date = self.kwargs["date"]
-        return super().get_queryset().filter(schedule_date )
+    # def get_queryset(self):     # Schedule.objects.all()
+    #     date = self.kwargs["date"]
+    #
+    #     return super().get_queryset().filter(schedule_date__date=schedule_date)
+    # #     return Schedule.objects.filter(schedule_date__date=schedule_date)
+
 
     # def get_context_data(self, **kwargs):
     #     pass
@@ -31,7 +35,13 @@ class ScheduleDV(DetailView):
 
     def get_object(self):
         date = self.kwargs["date"]
-        print(date)
+        schedule_date = datetime.datetime.strptime(date, '%Y-%m-%d')
+        print("!!!")
+        print(type(schedule_date))
+        schedule = Schedule.objects.filter(schedule_date__date=datetime.date(2020, 8, 15))
+        print(schedule)
+        schedules = Schedule.objects.filter(schedule_date__date=schedule_date)
+        print(schedules)
         return ""
         # return Schedule.objects.get(schedule_date = date)
 
