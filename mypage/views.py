@@ -24,12 +24,14 @@ class mypage_view(LoginRequiredMixin, DetailView):
 	# 	# return UserInfo.objects.filter(owner=self.request.user)
 	# 	return UserInfo.objects.get(owner=self.request.user)
 
+class MypageFormed(LoginRequiredMixin,TemplateView):
+	template_name = 'mypage_done.html'
 
 class MyPageCV(CreateView):
 	template_name = 'mypage_form.html'
 	model = UserInfo
 	fields = ['phoneNumber', 'address', 'nickname']
-	success_url = reverse_lazy('home')  # 데이터 입력이 원활히 전송이 됐을 경우 mypage_index로 회귀
+	success_url = reverse_lazy('mypage_done')  # 데이터 입력이 원활히 전송이 됐을 경우 mypage_index로 회귀
 
 	def form_valid(self, form):  # 유효성 검사
 		form.instance.owner = self.request.user  # user는 field데이터에서 구성되어있지 않으므로 사용자 권한 전달
@@ -44,7 +46,7 @@ class MyPageUV(LoginRequiredMixin,UpdateView):
 	template_name = 'mypage_form.html'
 	model = UserInfo
 	fields = ['phoneNumber', 'address', 'nickname']
-	success_url = reverse_lazy('home')  # 데이터 입력이 원활히 전송이 됐을 경우 mypage_index로 회귀
+	success_url = reverse_lazy('mypage_done')  # 데이터 입력이 원활히 전송이 됐을 경우 mypage_index로 회귀
 
 	def get_object(self, queryset=None):
 		return UserInfo.objects.get(owner=self.request.user)
