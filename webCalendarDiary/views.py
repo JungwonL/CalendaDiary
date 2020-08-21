@@ -7,12 +7,16 @@ from webCalendarDiary import settings
 from django.http import HttpResponse
 
 import os
+import requests
 
 from schedule.views import ScheduleLV
+
 
 # TemplateView
 class HomeView(ScheduleLV):
 	template_name = 'home.html'
+
+
 
 class CalUpdateView(TemplateView):
 	template_name = 'home_cal_update.html'

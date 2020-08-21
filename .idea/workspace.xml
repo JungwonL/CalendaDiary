@@ -28,10 +28,17 @@
   <component name="ChangeListManager">
     <list default="true" id="e9584086-cbd6-4090-80d6-98ddabf47feb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginPage/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginPage/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginPage/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginPage/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginPage/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginPage/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginPage/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schedule/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home_cal_style.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_cal_style.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home_cal_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_cal_table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home_top.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_top.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webCalendarDiary/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webCalendarDiary/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webCalendarDiary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/webCalendarDiary/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +48,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -138,10 +145,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1144" y="242" key="FileChooserDialogImpl" timestamp="1597121634214">
+    <state x="1144" y="242" key="FileChooserDialogImpl" timestamp="1597907269503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1144" y="242" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597121634214" />
+    <state x="1144" y="242" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597907269503" />
     <state width="1506" height="218" key="GridCell.Tab.0.bottom" timestamp="1597122260544">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'loginPage.apps.LoginpageConfig',
-    
     'widget_tweaks',
     'schedule.apps.ScheduleConfig',
     'mypage.apps.mypageConfig', #개인정보페이지config
