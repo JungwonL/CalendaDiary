@@ -20,6 +20,7 @@ const setCalendarData = (year, month) => {
   calHtml += `<div class="calendarDay">SAT</div>`;
   calHtml += `<div style="height:3px; background-color:#343A40;"></div>`;
 
+
   //달력출력
   for (let i = 0; i < 6; i++) {
     for (let j = 0; j < 7; j++) {
@@ -32,6 +33,7 @@ const setCalendarData = (year, month) => {
 
       //이번 달
       else if ((i == 0 && j >= firstDayName)||(i > 0 && startDayCount <= lastDay)) {
+
         //오늘
         if (startDayCount == today.getDate() && setDate.getMonth() == today.getMonth()){
           calHtml +=

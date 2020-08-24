@@ -8,10 +8,17 @@
 
 {% block content %}
 {% include "modal.html" %}
-{% include "google.html" %}
+
+<pre id="content" style="white-space: pre-wrap;"></pre>
+
+
+
 <div id="calendar"></div>
 
 <script>
+
+{% include "google.html" %}
+
 //count로 달력을 구분한다.
 var count = 0;
 
@@ -21,7 +28,15 @@ var count = 0;
 //캘린더 출력
 {% include "home_cal_table.html" %}
 
+//holiday
+{% include "google_holiday.html" %}
 
+
+</script>
+
+<script async defer src="https://apis.google.com/js/api.js"
+  onload="this.onload=function(){};handleClientLoad()"
+  onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
 
 
