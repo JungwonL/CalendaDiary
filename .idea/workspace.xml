@@ -27,9 +27,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9584086-cbd6-4090-80d6-98ddabf47feb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/google_holiday.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/google.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/google.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/google_holiday.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/google_holiday.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home_cal_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_cal_table.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home_cal_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_cal_update.html" afterDir="false" />

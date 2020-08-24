@@ -1,5 +1,7 @@
 var arrCal = new Array(33);
 var get_arrCal = false;
+document.cookie = "visited=true; Max-Age=2600000; Secure"
+
 // Client ID and API key from the Developer Console
 var CLIENT_ID = '916432056857-2tor60b32pc06b4t2vqbtjghk0nkgtll';
 var API_KEY = 'AIzaSyAKOseTNS64Kqx6OInla3dqblMEH7NDvWQ';
@@ -50,7 +52,6 @@ function initClient() {
  */
 function updateSigninStatus(isSignedIn) {
 
-console.log('google.html');
   listUpcomingEvents();
    //if (isSignedIn) {
    //  authorizeButton.style.display = 'none';
