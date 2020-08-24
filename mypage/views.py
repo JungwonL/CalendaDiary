@@ -21,8 +21,6 @@ class mypage_view(LoginRequiredMixin, DetailView):
 		UserInfo.objects.get_or_create(owner_id=self.request.user.id) #없으면 프로필 데이터 생성스
 		return UserInfo.objects.get(owner_id=self.request.user.id)
 
-
-
 	# def get_queryset(self): #이거슨 listview일 때 쓰는 것 이구요
 	# 	# return UserInfo.objects.filter(owner=self.request.user)
 	# 	return UserInfo.objects.get(owner=self.request.user)
