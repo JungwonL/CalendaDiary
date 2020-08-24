@@ -6,27 +6,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
 import datetime
 
-# Create your views here.
 
 class ScheduleLV(ListView):
     model = Schedule
     context_object_name = 'schedule_list'
-
-    # def get_queryset(self):     # Schedule.objects.all()
-    #     date = self.kwargs["date"]
-    #
-    #     return super().get_queryset().filter(schedule_date__date=schedule_date)
-    # #     return Schedule.objects.filter(schedule_date__date=schedule_date)
-
-
-    # def get_context_data(self, **kwargs):
-    #     pass
-    #
-    #     # context = super().get_context_data(**kwargs)
-    #     # context["date"] = date
-    #     # schedule = self.get_object()
-    #     # schedule.save()
-    #     # return context
 
 
 class ScheduleDV(DetailView):
@@ -35,32 +18,20 @@ class ScheduleDV(DetailView):
 
     def get_object(self):
         date = self.kwargs["date"]
-        schedule_date = datetime.datetime.strptime(date, '%Y-%m-%d')
-        print("!!!")
-        print(type(schedule_date))
-        schedule = Schedule.objects.filter(schedule_date__date=datetime.date(2020, 8, 15))
-        print(schedule)
+        schedule_date = datetime.datetime.strptime(date, '%Y-%m-%d')  # url에서 날짜 받아오기
         schedules = Schedule.objects.filter(schedule_date__date=schedule_date)
-        print(schedules)
-        return ""
-        # return Schedule.objects.get(schedule_date = date)
 
+        context = {}  # html에서 사용할 변수들 추가
+        context['schedule_date'] = schedule_date
+        context['schedules'] = schedules
+        print(schedules)
+        return context
 
 
 class ScheduleCreateView(LoginRequiredMixin, CreateView):
     model = Schedule
+    context_object_name = 'schedule'
 
     fields = ['schedule_date', 'title', 'description']
-    success_url = reverse_lazy('blog:index')
+    success_url = reverse_lazy('schedule:detail')
 
-    def form_valid(self, form):
-        form.instance.owner = self.request.user
-        form.instance.modify_dt = timezone.now()
-
-        response = super().form_valid(form) #post모델 저장, self.object
-
-        files = self.request.FILES.getlist("files")
-        for file in files:
-            # attach_file = PostAttachFile(post=self.object, filename=file.name, size=file.size, content_type=file.content_type, upload_file=file)
-            attach_file.save()
-        return response

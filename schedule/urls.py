@@ -8,7 +8,7 @@ urlpatterns = [
     path('schedule/', ScheduleLV.as_view(), name='index'),
     path('schedule/<str:date>/', ScheduleDV.as_view(), name='detail'),
     # re_path(r'^schedule/?date=([\w])$', ScheduleDV.as_view(), name='detail'),
+
     path('add/', ScheduleCreateView.as_view(), name="add"),
-    # path('', ScheduleDV.as_view(), name='detail'),
 ]
 

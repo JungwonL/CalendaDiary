@@ -2,8 +2,7 @@
 {% block title %}schedule_list.html{% endblock %}
 {% block content %}
 <div>
-<!--    <h3 id="date">해당날짜출력</h3>-->
-    <h3>{{schedule.schedule_date}}</h3>
+    <h3>{{user.username}}의 전체 일정</h3>
         {% if user.is_active%}
             <ul>
                 {% for schedule in user.schedule_set.all %}

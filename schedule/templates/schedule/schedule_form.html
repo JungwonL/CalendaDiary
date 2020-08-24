@@ -2,7 +2,7 @@
 {% load widget_tweaks %}
 {% block title %}schedule_form.html{% endblock %}
 {% block content %}
-<h3>Scheduling.._{{user.first_name}}</h3>
+<h3>Scheduling..{{user.first_name}}</h3>
 <p class="font-italic">This is a creation or update form for your schedule.</p>
 {% if form.errors %}
 <div class="alert alert-danger">
@@ -11,20 +11,19 @@
     </div>
     {{ form.errors }}
 </div>
-{% endif %} <!--파일 업로드 기능 활용 위해 enctype="multipart/form-data" 필요 -->
+{% endif %}
 <form action="." method="post" enctype="multipart/form-data" class="card pt-3">{% csrf_token %}
+    <div class="form-group row">
+        {{ form.schedule_date|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+        <div class="col-sm-5">
+            {{ form.schedule_date|add_class:"form-control" }}
+        </div>
+    </div>
     <div class="form-group row">
         {{ form.title|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
         <div class="col-sm-5">
             {{ form.title|add_class:"form-control"|attr:"autofocus" }}
         </div>
-    </div>
-    <div class="form-group row">
-        {{ form.slug|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
-        <div class="col-sm-5">
-            {{ form.slug|add_class:"form-control"|attr:"readonly" }}
-        </div>
-        <small class="form-text text-muted">{{ form.slug.help_text }}</small>
     </div>
     <div class="form-group row">
         {{ form.description|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
@@ -34,19 +33,11 @@
         <small class="form-text text-muted">
             {{ form.description.help_text }}</small>
     </div>
-
     <div class="form-group row">
         {{ form.content|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
         <div class="col-sm-8">
             {{ form.content|add_class:"form-control" }}
         </div>
-    </div>
-    <div class="form-group row">
-        {{ form.tags|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
-        <div class="col-sm-5">
-            {{ form.tags|add_class:"form-control" }}
-        </div>
-        <small class="form-text text-muted">{{ form.tags.help_text }}</small>
     </div>
     <div class="form-group">
         <div class="offset-sm-2 col-sm-5">

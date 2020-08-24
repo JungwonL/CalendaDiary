@@ -1,11 +1,10 @@
 {% extends "base.html" %}
-{% block title %}schedule_list.html{% endblock %}
+{% block title %}schedule_detail.html{% endblock %}
 {% block content %}
 <div>
 <h3>{{schedule.schedule_date}}</h3>
     {% if user.is_active%}
-        <ul>
-            {% for schedule in user.schedule_set.all %}
+            {% for schedule in schedule.schedules %}
             <li>
                 [{{schedule.schedule_date|date:"Y년 m월 d일"}}]: {{schedule.title}}/ {{schedule.description}}
             </li><br/>
@@ -18,7 +17,7 @@
         </div>
 
     {% else %}
-        <p>로그인 해주세요 :)</p>
+        <p>로그인 후 이용해주세요 :)</p>
         <button class="btn btn-dark" onclick="location.href='{% url 'login' %}'" >Login</button>
     {% endif %}
 
