@@ -27,7 +27,7 @@ const setCalendarData = (year, month) => {
       //이전 달
       if (i == 0 && j < firstDayName) {
         calHtml +=
-          `<div type="button" id="modal" style='background-color:#343A40;' class='calendar_day text-white-50' data-toggle="modal" data-target="#myModal">
+          `<div type="button" class='calendar_day text-white-50'>
             ${(prevLastDay - (firstDayName - 1) + j)}</div>`;
       }
 

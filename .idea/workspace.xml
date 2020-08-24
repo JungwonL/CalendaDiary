@@ -32,7 +32,6 @@
       <change beforePath="$PROJECT_DIR$/templates/google_holiday.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/google_holiday.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home_cal_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_cal_table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home_cal_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_cal_update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
