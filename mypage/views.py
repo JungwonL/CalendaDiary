@@ -18,7 +18,8 @@ class mypage_view(LoginRequiredMixin, DetailView):
 	template_name = 'mypage_index.html'
 	model = UserInfo
 	def get_object(self, queryset=None):
-		return UserInfo.objects.get(owner=self.request.user)
+		return UserInfo.objects.get_or_create(owner=self.request.user)
+
 
 	# def get_queryset(self): #이거슨 listview일 때 쓰는 것 이구요
 	# 	# return UserInfo.objects.filter(owner=self.request.user)
