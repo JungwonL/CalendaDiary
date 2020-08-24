@@ -5,6 +5,8 @@ from django.urls import path, include
 urlpatterns = [
 	path('avata/<int:pk>/add/', AvataView.as_view(), name='avata_add'),
 	path('avata/<int:id>', avata_view, name='avata'),
-	path('', mypage_view.as_view(), name='mypage_index'),
-	path('forming', mypage_form_view.as_view(), name='mypage_form')
+	path('profile/<str:username>', mypage_view.as_view(), name='mypage_index'),
+	path('add',MyPageCV.as_view(), name='mypage_add'),
+	path('update', MyPageUV.as_view(), name='mypage_update'),
+	path('formed', MypageFormed.as_view(), name='mypage_done')
 ]

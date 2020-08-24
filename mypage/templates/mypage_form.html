@@ -2,15 +2,16 @@
 {% load widget_tweaks %}
 {% block title %}login.html{% endblock %}
 {% block content %}
+
 <img src="{% url 'avata' user.id%}" class="avata">
 <h1>수정을 해볼까아</h1>
 <h1>유저 ID임:{{user.username}}</h1>
 <h2>유저 이름 : {{user.first_name}}</h2>
 <h2>유저 성 : {{user.last_name}}</h2>
 <h2>유저 이메일 : {{user.email}}</h2>
-<div class = "form-group">
-    <input type="text" name="my_name">
-    <input type="">
-</div>
-</body>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type='submit' value="OK">
+</form>
 {% endblock %}

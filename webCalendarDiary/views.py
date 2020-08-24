@@ -2,7 +2,7 @@ from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-from mypage.models import Avata
+from mypage.models import *
 from webCalendarDiary import settings
 from django.http import HttpResponse
 
@@ -55,3 +55,4 @@ def avata_view(request, id):
 	except:  # 등록된 아바타가 없는 경우 디폴트 아바타 이미지 사용
 		file_path = os.path.join(settings.MEDIA_ROOT, 'avatas/avata.jpg')
 	return HttpResponse(open(file_path, 'rb'), content_type="image/*")
+

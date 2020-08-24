@@ -37,8 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'loginPage.apps.LoginpageConfig',
     
     'widget_tweaks',
     'schedule.apps.ScheduleConfig',
