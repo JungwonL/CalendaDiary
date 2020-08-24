@@ -7,6 +7,12 @@ const setCalendarData = (year, month) => {
   const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
   const prevLastDay = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
 
+  //(“0” + (this.getMonth() + 1)).slice(-2);
+  const prev_year = new Date(today.getFullYear(), today.getMonth()+count).getFullYear();
+  const prev_month = ("0" + (new Date(today.getFullYear(), today.getMonth()+count).getMonth())).slice(-2);
+  const next_year = new Date(today.getFullYear(), today.getMonth() + 1+count).getFullYear();
+  const next_month = ("0" + (new Date(today.getFullYear(), today.getMonth()+1+count).getMonth()+1)).slice(-2);
+
   let startDayCount = 1;
   let lastDayCount = 1;
 
@@ -20,29 +26,29 @@ const setCalendarData = (year, month) => {
   calHtml += `<div class="calendarDay">SAT</div>`;
   calHtml += `<div style="height:3px; background-color:#343A40;"></div>`;
 
+
+
   for (let i = 0; i < 6; i++) {
     for (let j = 0; j < 7; j++) {
       //이전 달
       if (i == 0 && j < firstDayName) {
         calHtml +=
-        `<div style='background-color:#343A40;' class='calendar_day text-white-50'>
+        `<div class='calendar_day text-white-50' onclick=calDay_click('${prev_year}','${prev_month}','${(prevLastDay-(firstDayName-1)+j)}')>
             ${(prevLastDay - (firstDayName - 1) + j)}</div>`;
       }
-
-<!--onclick="location.href='/schedule/schedule/${year}-${month}-${setFixDayCount(startDayCount)}'"-->
 
       //이번 달
       else if ((i == 0 && j >= firstDayName)||(i > 0 && startDayCount <= lastDay)) {
         //오늘
         if (startDayCount == today.getDate() && setDate.getMonth() == today.getMonth()){
           calHtml +=
-          `<div type="button" class='calendar_day today'>${startDayCount}
+          `<div type="button" class='calendar_day today' onclick=calDay_click('${year}','${month}','${setFixDayCount(startDayCount)}') >${startDayCount}
             <span id='${year}${month}${setFixDayCount(startDayCount++)}'></span>
             </div>`;
         }
         else{
           calHtml +=
-          `<div type="button" class='calendar_day'>${startDayCount}
+          `<div type="button" class='calendar_day' onClick=calDay_click('${year}','${month}','${setFixDayCount(startDayCount)}')>${startDayCount}
             <span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
         }
       }
@@ -50,7 +56,7 @@ const setCalendarData = (year, month) => {
       // 다음 달
       else if (startDayCount > lastDay) {
         calHtml +=
-            `<div class='calendar_day text-white-50'>${lastDayCount++}</div>`;
+            `<div class='calendar_day text-white-50' onClick=calDay_click('${next_year}','${next_month}','${setFixDayCount(lastDayCount)}')>${lastDayCount++}</div>`;
       }
     }
   }
@@ -62,11 +68,10 @@ const setCalendarData = (year, month) => {
   let items = document.getElementsByClassName('calendar_day')
   let Today = document.getElementsByClassName('today')
 
+
+
   for(let item of items){
-        item.onclick = function(e){
-            let target = e.target;
-            location.href='/schedule/schedule/'+year+'-'+month+'-'+setFixDayCount(startDayCount);
-            }
+
         item.onmouseover = function(e){
             let target = e.target;
             target.style.cursor = 'pointer';
@@ -97,4 +102,8 @@ if (today.getMonth() + 1 < 10) {
   setCalendarData(today.getFullYear(), "0" + (today.getMonth() + 1));
 } else {
   setCalendarData(today.getFullYear(), "" + (today.getMonth() + 1));
+}
+
+function calDay_click(x, y, z){
+      location.href='/schedule/schedule/'+x+'-'+y+'-'+z;
 }
