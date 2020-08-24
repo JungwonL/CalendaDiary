@@ -18,7 +18,9 @@ class mypage_view(LoginRequiredMixin, DetailView):
 	template_name = 'mypage_index.html'
 	model = UserInfo
 	def get_object(self, queryset=None):
-		return UserInfo.objects.get_or_create(owner=self.request.user)
+		UserInfo.objects.get_or_create(owner_id=self.request.user.id) #없으면 프로필 데이터 생성스
+		return UserInfo.objects.get(owner_id=self.request.user.id)
+
 
 
 	# def get_queryset(self): #이거슨 listview일 때 쓰는 것 이구요
