@@ -4,8 +4,8 @@ from schedule.models import Schedule
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
+import datetime
 
-# Create your views here.
 
 class ScheduleLV(ListView):
     model = Schedule
@@ -16,27 +16,22 @@ class ScheduleDV(DetailView):
     model = Schedule
     context_object_name = 'schedule'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        schedule = self.get_object()
-        schedule.save()
+    def get_object(self):
+        date = self.kwargs["date"]
+        schedule_date = datetime.datetime.strptime(date, '%Y-%m-%d')  # url에서 날짜 받아오기
+        schedules = Schedule.objects.filter(schedule_date__date=schedule_date)
+
+        context = {}  # html에서 사용할 변수들 추가
+        context['schedule_date'] = schedule_date
+        context['schedules'] = schedules
+        print(schedules)
         return context
 
 
 class ScheduleCreateView(LoginRequiredMixin, CreateView):
     model = Schedule
+    context_object_name = 'schedule'
 
     fields = ['schedule_date', 'title', 'description']
-    success_url = reverse_lazy('blog:index')
+    success_url = reverse_lazy('schedule:detail')
 
-    def form_valid(self, form):
-        form.instance.owner = self.request.user
-        form.instance.modify_dt = timezone.now()
-
-        response = super().form_valid(form) #post모델 저장, self.object
-
-        files = self.request.FILES.getlist("files")
-        for file in files:
-            # attach_file = PostAttachFile(post=self.object, filename=file.name, size=file.size, content_type=file.content_type, upload_file=file)
-            attach_file.save()
-        return response

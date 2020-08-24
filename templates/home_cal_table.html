@@ -20,34 +20,37 @@ const setCalendarData = (year, month) => {
   calHtml += `<div class="calendarDay">SAT</div>`;
   calHtml += `<div style="height:3px; background-color:#343A40;"></div>`;
 
-  //달력출력
   for (let i = 0; i < 6; i++) {
     for (let j = 0; j < 7; j++) {
       //이전 달
       if (i == 0 && j < firstDayName) {
         calHtml +=
-          `<div type="button" style='background-color:#343A40;' class='calendar_day text-white-50'>
+        `<div style='background-color:#343A40;' class='calendar_day text-white-50'>
             ${(prevLastDay - (firstDayName - 1) + j)}</div>`;
       }
+
+<!--onclick="location.href='/schedule/schedule/${year}-${month}-${setFixDayCount(startDayCount)}'"-->
 
       //이번 달
       else if ((i == 0 && j >= firstDayName)||(i > 0 && startDayCount <= lastDay)) {
         //오늘
         if (startDayCount == today.getDate() && setDate.getMonth() == today.getMonth()){
           calHtml +=
-          `<div type="button" class='calendar_day today'>${startDayCount}<span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
+          `<div type="button" class='calendar_day today'>${startDayCount}
+            <span id='${year}${month}${setFixDayCount(startDayCount++)}'></span>
+            </div>`;
         }
         else{
           calHtml +=
-          `<div type="button" class='calendar_day'>${startDayCount}<span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
+          `<div type="button" class='calendar_day'>${startDayCount}
+            <span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
         }
       }
 
       // 다음 달
       else if (startDayCount > lastDay) {
         calHtml +=
-            `<div type="button"class='calendar_day text-white-50'>
-            ${lastDayCount++}</div>`;
+            `<div class='calendar_day text-white-50'>${lastDayCount++}</div>`;
       }
     }
   }
@@ -62,6 +65,7 @@ const setCalendarData = (year, month) => {
   for(let item of items){
         item.onclick = function(e){
             let target = e.target;
+            location.href='/schedule/schedule/'+year+'-'+month+'-'+setFixDayCount(startDayCount);
             }
         item.onmouseover = function(e){
             let target = e.target;
