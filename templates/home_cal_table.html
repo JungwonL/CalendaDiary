@@ -26,7 +26,7 @@ const setCalendarData = (year, month) => {
       //이전 달
       if (i == 0 && j < firstDayName) {
         calHtml +=
-          `<div type="button" id="modal" style='background-color:#343A40;' class='calendar_day text-white-50' data-toggle="modal" data-target="#myModal">
+          `<div type="button" style='background-color:#343A40;' class='calendar_day text-white-50'>
             ${(prevLastDay - (firstDayName - 1) + j)}</div>`;
       }
 
@@ -35,18 +35,18 @@ const setCalendarData = (year, month) => {
         //오늘
         if (startDayCount == today.getDate() && setDate.getMonth() == today.getMonth()){
           calHtml +=
-          `<div type="button" id="modal" class='calendar_day today' data-toggle="modal" data-target="#myModal">${startDayCount}<span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
+          `<div type="button" class='calendar_day today'>${startDayCount}<span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
         }
         else{
           calHtml +=
-          `<div type="button" id="modal" class='calendar_day' data-toggle="modal" data-target="#myModal">${startDayCount}<span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
+          `<div type="button" class='calendar_day'>${startDayCount}<span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
         }
       }
 
       // 다음 달
       else if (startDayCount > lastDay) {
         calHtml +=
-            `<div type="button" id="modal" class='calendar_day text-white-50' data-toggle="modal" data-target="#myModal">
+            `<div type="button"class='calendar_day text-white-50'>
             ${lastDayCount++}</div>`;
       }
     }
