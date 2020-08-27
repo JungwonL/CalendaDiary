@@ -27,21 +27,13 @@ const setCalendarData = (year, month) => {
   calHtml += `<div style="height:3px; background-color:#343A40;"></div>`;
 
 
-<<<<<<< HEAD
-
-=======
   //달력출력
->>>>>>> #9_GoogleCalendar
   for (let i = 0; i < 6; i++) {
     for (let j = 0; j < 7; j++) {
       //이전 달
       if (i == 0 && j < firstDayName) {
         calHtml +=
-<<<<<<< HEAD
         `<div class='calendar_day text-white-50' onclick=calDay_click('${prev_year}','${prev_month}','${(prevLastDay-(firstDayName-1)+j)}')>
-=======
-          `<div type="button" class='calendar_day text-white-50'>
->>>>>>> #9_GoogleCalendar
             ${(prevLastDay - (firstDayName - 1) + j)}</div>`;
       }
 
@@ -51,22 +43,15 @@ const setCalendarData = (year, month) => {
         //오늘
         if (startDayCount == today.getDate() && setDate.getMonth() == today_chk.getMonth()){
           calHtml +=
-<<<<<<< HEAD
           `<div type="button" class='calendar_day today' onclick=calDay_click('${year}','${month}','${setFixDayCount(startDayCount)}') >${startDayCount}
-            <span id='${year}${month}${setFixDayCount(startDayCount++)}'></span>
+            <span id='${year}${month}${setFixDayCount(startDayCount++)}' style="float: right;"></span>
             </div>`;
         }
         else{
           calHtml +=
           `<div type="button" class='calendar_day' onClick=calDay_click('${year}','${month}','${setFixDayCount(startDayCount)}')>${startDayCount}
-            <span id='${year}${month}${setFixDayCount(startDayCount++)}'></span></div>`;
-=======
-          `<div type="button" id="modal" class='calendar_day today' data-toggle="modal" data-target="#myModal">${startDayCount}<span id='${year}${month}${setFixDayCount(startDayCount++)}' style="float: right;"></span></div>`;
-        }
-        else{
-          calHtml +=
-          `<div type="button" id="modal" class='calendar_day' data-toggle="modal" data-target="#myModal">${startDayCount}<span id='${year}${month}${setFixDayCount(startDayCount++)}' style="float: right;"></span></div>`;
->>>>>>> #9_GoogleCalendar
+            <span id='${year}${month}${setFixDayCount(startDayCount++)}' style="float: right;"></span></div>`;
+
         }
       }
 
