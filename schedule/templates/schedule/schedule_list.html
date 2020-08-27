@@ -18,7 +18,7 @@
     {% else %}
         <p>스케줄을 추가해주세요 :)</p>
         <div class="text-right mr-3">
-        <a href="{% url 'schedule:add' %}" class="btn btn-info btn-sn">
+        <a href="{% url 'schedule:add' schedule.date %}" class="btn btn-info btn-sn">
             <i class="fas fa-pencil-alt"></i>추가</a>
         </div>
     {% endif %}
