@@ -5,9 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from mypage.models import Avata
 from webCalendarDiary import settings
 from django.http import HttpResponse
-
+from mypage.models import *
 import os
-import requests
 
 from schedule.views import ScheduleLV
 
