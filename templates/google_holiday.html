@@ -1,0 +1,16 @@
+var printHoliday = 0;
+setInterval(function(){
+    const today = new Date();
+    if(printHoliday == 0 && get_arrCal == true ){
+        printHoliday = 1;
+        for(var idx in arrCal){
+        //공휴일 추가 id='${year}${month}${setFixDayCount(startDayCount++)}'
+            var id_chk = String(today.getFullYear()) + String(today.getMonth()+1+count) + String(idx);
+            if (today.getMonth()+1+count < 10) {
+              id_chk = String(today.getFullYear()) + "0" + String(today.getMonth()+1+count) + String(idx);
+            }
+            let item = document.getElementById(id_chk);
+            item.innerHTML += " " + arrCal[idx];
+        }
+    }
+    }, 100);

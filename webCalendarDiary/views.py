@@ -5,14 +5,17 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from mypage.models import *
 from webCalendarDiary import settings
 from django.http import HttpResponse
-
+from mypage.models import *
 import os
 
 from schedule.views import ScheduleLV
 
+
 # TemplateView
 class HomeView(ScheduleLV):
 	template_name = 'home.html'
+
+
 
 class CalUpdateView(TemplateView):
 	template_name = 'home_cal_update.html'

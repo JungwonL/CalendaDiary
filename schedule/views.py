@@ -12,6 +12,9 @@ class ScheduleLV(ListView):
     context_object_name = 'schedule_list'
 
 
+
+
+
 class ScheduleDV(DetailView):
     model = Schedule
     context_object_name = 'schedule'
