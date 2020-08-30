@@ -9,6 +9,7 @@ class Schedule(models.Model):
     description = models.CharField(max_length=50, blank=True, null=True)
     national_holiday_fk = models.IntegerField(null=True)
     user_id_fk = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, db_column='user_id_fk')
+    is_temporary_schedule = models.BooleanField(default=False) #임시 temporary로서 updateview를 통해 getdata 하는 역할
 
     class Meta:
         db_table = 'schedules'
