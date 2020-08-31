@@ -35,7 +35,11 @@ class ScheduleCreateView(LoginRequiredMixin, CreateView):
 
 
     fields = ['schedule_date', 'title', 'description']
-    success_url = reverse_lazy('schedule:detail')
+
+    def get_success_url(self):
+        dateAndhour = self.object.schedule_date
+        date = dateAndhour.date()
+        return reverse_lazy('schedule:detail', kwargs={'date': date})
 
     def get_initial(self):
         return {'user_id_fk': self.request.user.id, 'schedule_date': self.kwargs["date"]}
