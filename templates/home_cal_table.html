@@ -1,3 +1,12 @@
+
+<!--- 강사 추가 시작 -->
+let schedules = {
+  {% for schedule in schedule_list %}
+      {{schedule.schedule_date}} : "{{schedule.title}}",
+  {% endfor %}
+  }
+  <!--- 강사 추가 끝 -->
+
 const setCalendarData = (year, month) => {
   const today_chk = new Date();
   const setDate = new Date(year, month - 1, 1);
@@ -89,6 +98,9 @@ const setCalendarData = (year, month) => {
     };
 
 };
+
+
+
 
 const setFixDayCount = number => {
   let fixNum = "";
