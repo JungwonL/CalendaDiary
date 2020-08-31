@@ -33,9 +33,7 @@ class ScheduleCreateView(LoginRequiredMixin, CreateView):
     model = Schedule
     context_object_name = 'schedule'
 
-
     fields = ['schedule_date', 'title', 'description']
-    success_url = reverse_lazy('schedule:detail')
 
     def form_valid(self, form):
         form.instance.user_id_fk = self.request.user
