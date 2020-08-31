@@ -1,9 +1,12 @@
 {% extends "base.html" %}
+{% block extra-style %}
+{% include "schedule_style.html" %}
+{% endblock %}
 {% block title %}schedule_detail.html{% endblock %}
 {% block content %}
-<div>
-<h3>{{schedule.schedule_date}}</h3>
+<div class="scheduleDetail">
     {% if user.is_active%}
+        <h3>{{schedule.schedule_date}}</h3>
         <ul>
             {% for schedule in schedule.schedules %}
             <li>
@@ -18,8 +21,11 @@
         </div>
 
     {% else %}
-        <p>로그인 후 이용해주세요 :)</p>
-        <button class="btn btn-dark" onclick="location.href='{% url 'login' %}'" >Login</button>
+    <div id="loginBefore">
+        <h5>로그인 후 이용해주세요. :)</h5></br>
+          <button class="btn btn-dark" onclick="location.href='{% url 'login' %}'" ><i class="fas fa-sign-in-alt"></i> Login</button>
+
+    </div>
     {% endif %}
 
 </div>

@@ -9,9 +9,9 @@ const setCalendarData = (year, month) => {
 
   //(“0” + (this.getMonth() + 1)).slice(-2);
   const prev_year = new Date(today.getFullYear(), today.getMonth()+count).getFullYear();
-  const prev_month = ("0" + (new Date(today.getFullYear(), today.getMonth()+count).getMonth())).slice(-2);
-  const next_year = new Date(today.getFullYear(), today.getMonth() + 1+count).getFullYear();
-  const next_month = ("0" + (new Date(today.getFullYear(), today.getMonth()+1+count).getMonth()+1)).slice(-2);
+  const prev_month = ("0" + (new Date(today.getFullYear(), today.getMonth()).getMonth())).slice(-2);
+  const next_year = new Date(today.getFullYear(), today.getMonth() + 1).getFullYear();
+  const next_month = ("0" + (new Date(today.getFullYear(), today.getMonth()+1).getMonth()+1)).slice(-2);
 
   let startDayCount = 1;
   let lastDayCount = 1;

@@ -3,10 +3,10 @@
 {% block title %}login.html{% endblock %}
 {% block content %}
 <div class="jumbotron">
-<div class="container vertical-center">
-    <form action="." method="post" class="card pt-3">
+<div class="container vertical-center"  style="""width:auto;">
+    <form action="." method="post" class="card pt-5" style="background-color: #343A40;">
         {% csrf_token %}
-    <h1 align="center">로그인</h1>
+
         {% if form.errors %}
         <div class="alert alert-danger">
             <div class="font-weight-bold">
@@ -15,21 +15,24 @@
             {{ form.errors }}
         </div>
         {% endif %}
-            <div class="form-group row">
-                {{ form.username| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
-                <div class="col-sm-5">
+            <div class="form-group row justify-content-md-center">
+                <div class="col-form-label col-sm-1 ml-2 text-white">ID: </div>
+                <div class="col-sm-3">
                     {{ form.username|add_class:"form-control"|attr:"autofocus" }}
                 </div>
             </div>
-            <div class="form-group row">
-                {{ form.password| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
-                <div class="col-sm-5">
+            <div class="form-group row justify-content-md-center">
+                <div class="col-form-label col-sm-1 ml-2 text-white">PW: </div>
+                <div class="col-sm-3">
                     {{ form.password|add_class:"form-control" }}
                 </div>
             </div>
             <div class="form-group">
-                <div class="offset-sm-2 col-sm-5">
-                    <input type="submit" value="Log in" class="btn btn-info"/>
+                <div class="offset-sm-1">
+
+                    <button type="submit" class="btn btn-info btn-dark" style="float:right;">
+                        <i class="fas fa-sign-in-alt"> Login</i>
+                    </button>
                     <input type="hidden" name="next" value="{{ next }}"/>
                 </div>
             </div>
