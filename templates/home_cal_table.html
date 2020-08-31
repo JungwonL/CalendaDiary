@@ -41,7 +41,7 @@ const setCalendarData = (year, month) => {
       else if ((i == 0 && j >= firstDayName)||(i > 0 && startDayCount <= lastDay)) {
 
         //오늘
-        if (startDayCount == today.getDate() && setDate.getMonth() == today_chk.getMonth()){
+        if (startDayCount == todayDate && setDate.getMonth() == today_chk.getMonth()){
           calHtml +=
           `<div type="button" class='calendar_day today' onclick=calDay_click('${year}','${month}','${setFixDayCount(startDayCount)}') >${startDayCount}
             <span id='${year}${month}${setFixDayCount(startDayCount++)}' style="float: right;"></span>
