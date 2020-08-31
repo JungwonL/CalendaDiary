@@ -39,7 +39,7 @@ function listUpcomingEvents() {
   today.setHours(9);
   const first_date = new Date(today.getFullYear(), today.getMonth()+count, 1, today.getHours()).toISOString();
   const last_date = new Date(today.getFullYear(), today.getMonth()+1+count, 1, today.getHours()).toISOString();
-  console.log(first_date, last_date);
+  //console.log(first_date, last_date);
   gapi.client.calendar.events.list({
     'calendarId': 'ko.south_korea#holiday@group.v.calendar.google.com',
     'timeMin': (first_date),
@@ -49,7 +49,7 @@ function listUpcomingEvents() {
     'orderBy': 'startTime'
   }).then(function(response) {
     var events = response.result.items;
-    console.log(events);
+    //console.log(events);
     if (events.length > 0) {
       for (i = 0; i < events.length; i++) {
         //console.log(event.summary);
@@ -64,7 +64,7 @@ function listUpcomingEvents() {
 
 
       }
-      console.log(arrCal);
+     //console.log(arrCal);
       get_arrCal = true;
     }
 
