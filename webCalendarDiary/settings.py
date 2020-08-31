@@ -82,12 +82,12 @@ WSGI_APPLICATION = 'webCalendarDiary.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'webprojectdb', #데이타 베이스 이름
-        # 'HOST' : '192.168.0.11', #서버 ip
-        # 'PORT' : '3306', #포트 번호
-        # 'USER' : 'webProject', #사용자 ID
-        # 'PASSWORD' : '1234' #비밀번호
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'webprojectdb', #데이타 베이스 이름
+        'HOST' : '127.0.0.1', #서버 ip
+        'PORT' : '3306', #포트 번호
+        'USER' : 'webProject', #사용자 ID
+        'PASSWORD' : '1234' #비밀번호
     }
 }
 
