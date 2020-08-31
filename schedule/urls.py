@@ -9,6 +9,6 @@ urlpatterns = [
     path('schedule/<str:date>/', ScheduleDV.as_view(), name='detail'),
     # re_path(r'^schedule/?date=([\w])$', ScheduleDV.as_view(), name='detail'),
 
-    path('add/', ScheduleCreateView.as_view(), name="add"),
+    path('<str:date>/add/', ScheduleCreateView.as_view(), name="add"),
 ]
 

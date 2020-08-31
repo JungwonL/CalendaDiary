@@ -12,9 +12,6 @@ class ScheduleLV(ListView):
     context_object_name = 'schedule_list'
 
 
-
-
-
 class ScheduleDV(DetailView):
     model = Schedule
     context_object_name = 'schedule'
@@ -25,6 +22,7 @@ class ScheduleDV(DetailView):
         schedules = Schedule.objects.filter(schedule_date__date=schedule_date)
 
         context = {}  # html에서 사용할 변수들 추가
+        context['date'] = date
         context['schedule_date'] = schedule_date
         context['schedules'] = schedules
         print(schedules)
@@ -35,6 +33,13 @@ class ScheduleCreateView(LoginRequiredMixin, CreateView):
     model = Schedule
     context_object_name = 'schedule'
 
+
     fields = ['schedule_date', 'title', 'description']
     success_url = reverse_lazy('schedule:detail')
+
+    def get_initial(self):
+        return {'user_id_fk': self.request.user.id, 'schedule_date': self.kwargs["date"]}
+
+    class Meta:
+        exclude = ["user"]
 

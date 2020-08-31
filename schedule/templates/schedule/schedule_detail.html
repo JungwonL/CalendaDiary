@@ -4,6 +4,7 @@
 <div>
 <h3>{{schedule.schedule_date}}</h3>
     {% if user.is_active%}
+        <ul>
             {% for schedule in schedule.schedules %}
             <li>
                 [{{schedule.schedule_date|date:"Y년 m월 d일"}}]: {{schedule.title}}/ {{schedule.description}}
@@ -12,7 +13,7 @@
         </ul>
 
         <div class="text-right mr-3">
-        <a href="{% url 'schedule:add' %}" class="btn btn-dark btn-sn">
+        <a href="{% url 'schedule:add' schedule.date %}" class="btn btn-dark btn-sn">
             <i class="fas fa-pencil-alt"></i>일정 추가</a>
         </div>
 
