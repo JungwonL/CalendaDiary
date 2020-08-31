@@ -36,6 +36,10 @@ class ScheduleCreateView(LoginRequiredMixin, CreateView):
 
     fields = ['schedule_date', 'title', 'description']
 
+    def form_valid(self, form):
+        form.instance.user_id_fk = self.request.user
+        return super().form_valid(form)
+
     def get_success_url(self):
         dateAndhour = self.object.schedule_date
         date = dateAndhour.date()
