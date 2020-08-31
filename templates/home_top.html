@@ -1,5 +1,7 @@
 //오늘 날짜 기준으로 달 계산
 const today = new Date();
+const todayDate = today.getDate();
+today.setDate(1);
 today.setMonth(today.getMonth() + count);
 
 //좌우 버튼, 년월 출력
