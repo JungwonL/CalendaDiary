@@ -38,6 +38,7 @@ urlpatterns = [
 
 	# 달력
 	path('', HomeView.as_view(), name='home'),
+	path('home2/',Home2View.as_view(), name='home2'),
 	path('prev/', CalUpdateView.as_view(), name='cal'),
 	path('schedule/', include('schedule.urls')),
 

@@ -1,19 +1,23 @@
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView,ListView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from mypage.models import *
 from webCalendarDiary import settings
 from django.http import HttpResponse
-from mypage.models import *
+from schedule.models import *
 import os
-
 from schedule.views import ScheduleLV
-
+import json
 
 # TemplateView
 class HomeView(ScheduleLV):
 	template_name = 'home.html'
+
+class Home2View(ListView):
+	model = Schedule
+	context_object_name = 'Schedule_list'
+	template_name = 'home2.html'
 
 
 
