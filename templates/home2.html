@@ -2,17 +2,15 @@
 {% block title %}uhmmm.html{% endblock %}
 {% block content %}
 <h1>왜 아무것도 안나옴</h1>
-{{user.user_name}}
 {% for Schedule in Schedule_list %}
-{{Schedule.pk}}<br>
-{{Schedule.title}}<br>
-{{Schedule.schedule_date}}<br>
+<p id="{{Schedule.schedule_date}}"></p><br>
 {% endfor %}
 <a class="nav-link text-black" href="{% url 'home' %}"><i class="fas fa-home"></i></a>
-<p id="test"></p>
 <script>
-let item = document.getElementById("test");
-{% for Schedule in Schedule_list %}
+        {% for Schedule in Schedule_list %}
+        let item = document.getElementById("{{Schedule.schedule_date}}");
+        {% endfor %}
+        {% for Schedule in Schedule_list %}
         item.innerHTML+="{{Schedule.title}}"+"<br>";
         {% endfor %}
 </script>
