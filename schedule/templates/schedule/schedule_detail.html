@@ -21,6 +21,8 @@
     <div class="text-right mr-3">
         <a href="{% url 'schedule:add' schedule.date %}" class="btn btn-dark btn-sn">
             <i class="fas fa-pencil-alt"></i>일정 추가</a>
+        <a href="{% url 'home' %}" class="btn btn-dark btn-sn">
+            <i class="fas fa-home"></i>홈으로</a>
     </div>
 
     {% else %}
