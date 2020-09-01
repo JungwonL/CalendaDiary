@@ -34,6 +34,15 @@ class CalUpdateView(TemplateView):
 	template_name = 'home_cal_update.html'
 
 
+	# 강사 추가 부분
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		year = self.request.GET.get("year", "2020")
+		month = self.request.GET.get("month", "09")
+		schedules = Schedule.objects.filter(user_id_fk=self.request.user.id)
+		context['schedule_list'] = schedules
+		return context
+
 # --- User Creation
 class UserCreateView(CreateView):
 	template_name = 'registration/register.html'
