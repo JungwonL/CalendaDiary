@@ -45,7 +45,7 @@ const setCalendarData = (year, month) => {
           calHtml +=
           `<div type="button" class='calendar_day today' onclick=calDay_click('${year}','${month}','${setFixDayCount(startDayCount)}') >${startDayCount}
             <span id='${year}${month}${setFixDayCount(startDayCount)}' style="float: right;"></span>
-            <div id ='event${year}${month}${setFixDayCount(startDayCount++)}'>오늘이당</div>
+            <div id ='event${year}${month}${setFixDayCount(startDayCount++)}'></div>
             </div>`;
         }
         else{
