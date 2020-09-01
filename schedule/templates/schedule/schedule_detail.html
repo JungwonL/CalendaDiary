@@ -6,22 +6,29 @@
 {% block content %}
 <div class="scheduleDetail">
     {% if user.is_active%}
-    <h3>{{schedule.schedule_date}}</h3>
+    <h3>{{schedule.schedule_date|date:"Y, m월 d일"}}</h3>
+
+    <table>
+        <tr>
+            <th class="title">Title</th>
+            <th class="description">Description</th>
+            <th class="icon"><a href="{% url 'schedule:add' schedule.date %}" class="btn btn-dark btn-sn">
+            <i class="fas fa-plus"></i></a></th>
+        </tr>
     {% for schedule in schedule.schedules %}
-    <li>
-        [{{schedule.schedule_date|date:"Y년 m월 d일"}}]: {{schedule.title}}/ {{schedule.description}}
-        <a href="{% url 'schedule:update' schedule.pk %}" class="btn btn-dark btn-sn">
-        <i class="fas fa-pencil-alt"></i>변경</a>
-        <a href="{% url 'schedule:delete' schedule.pk %}" class="btn btn-dark btn-sn">
-        <i class="fas fa-eraser"></i>삭제</a>
-    </li>
+        <tr>
+            <td class="title">{{schedule.title}}</td>
+            <td class="description">{{schedule.description}}</td>
+            <td class="icon"> <a href="{% url 'schedule:update' schedule.pk %}" class="btn btn-dark btn-sn">
+                                <i class="fas fa-pencil-alt"></i></a>
+            <a href="{% url 'schedule:delete' schedule.pk %}" class="btn btn-dark btn-sn">
+        <i class="fas fa-eraser"></i></a></td>
+        </tr>
+
     <br/>
     {% endfor %}
+    </table>
 
-    <div class="text-right mr-3">
-        <a href="{% url 'schedule:add' schedule.date %}" class="btn btn-dark btn-sn">
-            <i class="fas fa-pencil-alt"></i>일정 추가</a>
-    </div>
 
     {% else %}
     <div id="loginBefore">
