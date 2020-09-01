@@ -1,13 +1,17 @@
 var arrNumber = {};
 {% for schedule in schedule_list %}
 arrNumber[javaCovDate("{{schedule.schedule_date}}")] = "";
+{% endfor %}
+{% for schedule in schedule_list %}
 arrNumber[javaCovDate("{{schedule.schedule_date}}")] += "{{schedule.title}}"+"<br>";
 {% endfor %}
 
 for(var idx in arrNumber){
-    if ( !document.getElementById(idx) ){
+    console.log(idx)
+    console.log('event'+idx)
+    if ( !document.getElementById('event'+idx) ){
     }else{
-        let item = document.getElementById(idx);
+        let item = document.getElementById('event'+idx);
         item.innerHTML += " " + arrNumber[idx];
     }
 }
