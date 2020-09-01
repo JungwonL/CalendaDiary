@@ -7,19 +7,14 @@ from django.utils import timezone
 import datetime
 
 
-class ScheduleLV(ListView):
-    model = Schedule
-    context_object_name = 'schedule_list'
-
-
-class ScheduleDV(DetailView):
+class ScheduleDV(LoginRequiredMixin, DetailView):
     model = Schedule
     context_object_name = 'schedule'
 
     def get_object(self):
         date = self.kwargs["date"]
         schedule_date = datetime.datetime.strptime(date, '%Y-%m-%d')  # url에서 날짜 받아오기
-        schedules = Schedule.objects.filter(schedule_date__date=schedule_date)
+        schedules = Schedule.objects.filter(schedule_date__date=schedule_date, user_id_fk=self.request.user)
 
         context = {}  # html에서 사용할 변수들 추가
         context['date'] = date

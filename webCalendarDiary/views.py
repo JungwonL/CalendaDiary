@@ -7,18 +7,16 @@ from webCalendarDiary import settings
 from django.http import HttpResponse
 from schedule.models import *
 import os
-from schedule.views import ScheduleLV
 import json
 
 # TemplateView
-class HomeView(ScheduleLV):
+class HomeView(ListView):
+	model = Schedule
+	context_object_name = 'schedule_list'
 	template_name = 'home.html'
 
-	# 강사 추가 부분
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
-		year = self.request.GET.get("year", "2020")
-		month = self.request.GET.get("month", "09")
 		schedules = Schedule.objects.filter(user_id_fk=self.request.user.id)
 		context['schedule_list'] = schedules
 		return context
@@ -34,11 +32,8 @@ class CalUpdateView(TemplateView):
 	template_name = 'home_cal_update.html'
 
 
-	# 강사 추가 부분
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
-		year = self.request.GET.get("year", "2020")
-		month = self.request.GET.get("month", "09")
 		schedules = Schedule.objects.filter(user_id_fk=self.request.user.id)
 		context['schedule_list'] = schedules
 		return context
