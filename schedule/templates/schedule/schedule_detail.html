@@ -1,17 +1,12 @@
 {% extends "base.html" %}
 {% block extra-style %}
 {% include "schedule_style.html" %}
+{% include "schedule_top_design.html" %}
 {% endblock %}
 {% block title %}schedule_detail.html{% endblock %}
 {% block content %}
 <div class="scheduleDetail">
     {% if user.is_active%}
-    <div>
-    <a href="{% url 'home' %}" class="btn btn-dark btn-sn" style="margin: 0 67% 0 0;">
-            <i class="fas fa-home"></i></a>
-    </div>
-    <h3>{{schedule.schedule_date|date:"Y, m월 d일"}}</h3>
-
     <table>
         <tr>
             <th class="title">Title</th>
@@ -19,7 +14,8 @@
             <th class="icon"><a href="{% url 'schedule:add' schedule.date %}" class="btn btn-dark btn-sn">
             <i class="fas fa-plus"></i></a></th>
         </tr>
-    {% for schedule in schedule.schedules %}
+
+        {% for schedule in schedule.schedules %}
         <tr>
             <td class="title">{{schedule.title}}</td>
             <td class="description">{{schedule.description}}</td>
@@ -28,9 +24,8 @@
             <a href="{% url 'schedule:delete' schedule.pk %}" class="btn btn-dark btn-sn">
         <i class="fas fa-eraser"></i></a></td>
         </tr>
-
-    <br/>
-    {% endfor %}
+        <br/>
+        {% endfor %}
     </table>
 
     {% else %}
@@ -45,3 +40,4 @@
 
 </div>
 {% endblock %}
+
