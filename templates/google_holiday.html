@@ -4,10 +4,8 @@ setInterval(function(){
     if(printHoliday == 0 && get_arrCal == true ){
         printHoliday = 1;
         for(var idx in arrCal){
-
         //공휴일 추가 id='${year}${month}${setFixDayCount(startDayCount++)}'
             var id_chk = String(today.getFullYear()) + String(today.getMonth()+1+count) + String(idx);
-            console.log(id_chk)
             if (today.getMonth()+1+count < 10) {
               id_chk = String(today.getFullYear()) + "0" + String(today.getMonth()+1+count) + String(idx);
             }
@@ -39,19 +37,18 @@ var isprintEvent = true;
 setInterval(function(){
     var arrNumber = {}
     {% for schedule in schedule_list %}
+    arrNumber[javaCovDate("{{schedule.schedule_date}}")] = ""
     arrNumber[javaCovDate("{{schedule.schedule_date}}")] += "{{schedule.title}}"+"<br>";
     {% endfor %}
     if (isprintEvent == true){
         isprintEvent = false;
-    console.log(arrNumber)
         for(var idx in arrNumber){
-            var id_chk = String(idx);
-            console.log(id_chk)
-            if (today.getMonth()+1+count < 10) {
-              id_chk = String(today.getFullYear()) + "0" + String(today.getMonth()+1+count) + String(idx);
+            console.log(document.getElementById(idx))
+            if ( !document.getElementById(idx) ){
+            }else{
+                let item = document.getElementById(idx);
+                item.innerHTML += " " + arrNumber[idx];
             }
-            let item = document.getElementById(id_chk);
-            item.innerHTML += " " + arrNumber[idx];
         }
     }
     }, 100);
