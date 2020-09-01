@@ -1,0 +1,37 @@
+var arrNumber = {};
+{% for schedule in schedule_list %}
+arrNumber[javaCovDate("{{schedule.schedule_date}}")] = "";
+{% endfor %}
+{% for schedule in schedule_list %}
+arrNumber[javaCovDate("{{schedule.schedule_date}}")] += "{{schedule.title}}"+"<br>";
+{% endfor %}
+
+for(var idx in arrNumber){
+    console.log(idx)
+    console.log('event'+idx)
+    if ( !document.getElementById('event'+idx) ){
+    }else{
+        let item = document.getElementById('event'+idx);
+        item.innerHTML += " " + arrNumber[idx];
+    }
+}
+
+function numberPad(n, width) {
+    n = n + '';
+    return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+}
+
+function javaCovDate(date) {
+    var splitbyYear = date.split('년');
+    var year = splitbyYear[0];
+    var splitbyMonth = splitbyYear[1].split('월');
+    var month = splitbyMonth[0];
+    month = numberPad(Number(month), 2);
+    var splitbyDay = splitbyMonth[1].split('일');
+    var day = splitbyDay[0];
+    day = numberPad(Number(day), 2);
+    javaScheduleDate = year+month+day;
+    return javaScheduleDate
+}
+
+

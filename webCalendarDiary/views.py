@@ -1,25 +1,47 @@
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView,ListView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from mypage.models import *
 from webCalendarDiary import settings
 from django.http import HttpResponse
-from mypage.models import *
+from schedule.models import *
 import os
-
 from schedule.views import ScheduleLV
-
+import json
 
 # TemplateView
 class HomeView(ScheduleLV):
 	template_name = 'home.html'
+
+	# 강사 추가 부분
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		year = self.request.GET.get("year", "2020")
+		month = self.request.GET.get("month", "09")
+		schedules = Schedule.objects.filter(user_id_fk=self.request.user.id)
+		context['schedule_list'] = schedules
+		return context
+
+class Home2View(ListView):
+	model = Schedule
+	context_object_name = 'Schedule_list'
+	template_name = 'home2.html'
 
 
 
 class CalUpdateView(TemplateView):
 	template_name = 'home_cal_update.html'
 
+
+	# 강사 추가 부분
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		year = self.request.GET.get("year", "2020")
+		month = self.request.GET.get("month", "09")
+		schedules = Schedule.objects.filter(user_id_fk=self.request.user.id)
+		context['schedule_list'] = schedules
+		return context
 
 # --- User Creation
 class UserCreateView(CreateView):

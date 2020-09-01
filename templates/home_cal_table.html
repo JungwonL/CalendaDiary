@@ -44,13 +44,16 @@ const setCalendarData = (year, month) => {
         if (startDayCount == todayDate && setDate.getMonth() == today_chk.getMonth()){
           calHtml +=
           `<div type="button" class='calendar_day today' onclick=calDay_click('${year}','${month}','${setFixDayCount(startDayCount)}') >${startDayCount}
-            <span id='${year}${month}${setFixDayCount(startDayCount++)}' style="float: right;"></span>
+            <span id='${year}${month}${setFixDayCount(startDayCount)}' style="float: right;"></span>
+            <div id ='event${year}${month}${setFixDayCount(startDayCount++)}'></div>
             </div>`;
         }
         else{
           calHtml +=
           `<div type="button" class='calendar_day' onClick=calDay_click('${year}','${month}','${setFixDayCount(startDayCount)}')>${startDayCount}
-            <span id='${year}${month}${setFixDayCount(startDayCount++)}' style="float: right;"></span></div>`;
+            <span id='${year}${month}${setFixDayCount(startDayCount)}' style="float: right;"></span>
+            <div id ='event${year}${month}${setFixDayCount(startDayCount++)}'></div>
+            </div>`;
 
         }
       }
@@ -89,6 +92,9 @@ const setCalendarData = (year, month) => {
     };
 
 };
+
+
+
 
 const setFixDayCount = number => {
   let fixNum = "";
