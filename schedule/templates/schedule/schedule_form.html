@@ -1,48 +1,53 @@
 {% extends "base.html" %}
+{% block extra-style %}
+{% include "schedule_style.html" %}
+{% include "schedule_top_design.html" %}
+{% endblock %}
 {% load widget_tweaks %}
 {% block title %}schedule_form.html{% endblock %}
 {% block content %}
-<h3>Scheduling..{{user.first_name}}</h3>
-<p class="font-italic">This is a creation or update form for your schedule.</p>
-{% if form.errors %}
-<div class="alert alert-danger">
-    <div class="font-weight-bold">
-        Wrong! Please correct the error(s) below.
+<div class="scheduleDetail">
+    <h3>Scheduling..{{user.first_name}}</h3>
+    <p class="font-italic" style="margin-bottom:2%;">This is a creation or update form for your schedule.</p>
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        <div class="font-weight-bold">
+            Wrong! Please correct the error(s) below.
+        </div>
+        {{ form.errors }}
     </div>
-    {{ form.errors }}
+    {% endif %}
+    <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="form-group row offset-sm-3">
+            {{ form.schedule_date|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            <div class="col-sm-5">
+                {{ form.schedule_date|add_class:"form-control" }}
+            </div>
+        </div>
+        <div class="form-group row offset-sm-3">
+            {{ form.title|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            <div class="col-sm-5">
+                {{ form.title|add_class:"form-control"|attr:"autofocus" }}
+            </div>
+        </div>
+        <div class="form-group row offset-sm-3">
+            {{ form.description|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            <div class="col-sm-5">
+                {{ form.description|add_class:"form-control" }}
+            </div>
+            <small class="form-text text-muted">
+                {{ form.description.help_text }}</small>
+        </div>
+        <div class="form-group row">
+            {{ form.content|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            <div class="col-sm-8">
+                {{ form.content|add_class:"form-control" }}
+            </div>
+        </div>
+        <div class="form-group submitButton">
+            <i class="far fa-paper-plane">
+            <input type="submit" value="Submit" class="btn btn-dark"/></i>
+        </div>
+    </form>
 </div>
-{% endif %}
-<form action="." method="post" enctype="multipart/form-data" class="card pt-3">{% csrf_token %}
-    <div class="form-group row">
-        {{ form.schedule_date|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
-        <div class="col-sm-5">
-            {{ form.schedule_date|add_class:"form-control" }}
-        </div>
-    </div>
-    <div class="form-group row">
-        {{ form.title|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
-        <div class="col-sm-5">
-            {{ form.title|add_class:"form-control"|attr:"autofocus" }}
-        </div>
-    </div>
-    <div class="form-group row">
-        {{ form.description|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
-        <div class="col-sm-5">
-            {{ form.description|add_class:"form-control" }}
-        </div>
-        <small class="form-text text-muted">
-            {{ form.description.help_text }}</small>
-    </div>
-    <div class="form-group row">
-        {{ form.content|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
-        <div class="col-sm-8">
-            {{ form.content|add_class:"form-control" }}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="offset-sm-2 col-sm-5">
-            <input type="submit" value="Submit" class="btn btn-info"/>
-        </div>
-    </div>
-</form>
 {% endblock %}

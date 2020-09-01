@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block extra-style %}
 {% include "schedule_style.html" %}
+{% include "schedule_top_design.html" %}
 {% endblock %}
 {% block title %}schedule_detail.html{% endblock %}
 {% block content %}
 <div class="scheduleDetail">
     {% if user.is_active%}
-    <h3>{{schedule.schedule_date}}</h3>
     {% for schedule in schedule.schedules %}
     <li>
         [{{schedule.schedule_date|date:"Y년 m월 d일"}}]: {{schedule.title}}/ {{schedule.description}}
@@ -21,8 +21,6 @@
     <div class="text-right mr-3">
         <a href="{% url 'schedule:add' schedule.date %}" class="btn btn-dark btn-sn">
             <i class="fas fa-pencil-alt"></i>일정 추가</a>
-        <a href="{% url 'home' %}" class="btn btn-dark btn-sn">
-            <i class="fas fa-home"></i>홈으로</a>
     </div>
 
     {% else %}
@@ -37,3 +35,4 @@
 
 </div>
 {% endblock %}
+

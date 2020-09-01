@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark " style="height: 100px;" >
+<!--홈 버튼-->
+    <div class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item btn btn-dark">
+                <a class="nav-link text-white" href="{% url 'home' %}">
+                    <i class="fas fa-home"></i></a>
+            </li>
+        </ul>
+    </div>
+
+<!--스케줄링중인 날짜-->
+    <div class="navbar-nav mx-auto order-0">
+        <h1 align="center" class="text-white">
+            {{schedule.schedule_date}}
+        </h1>
+    </div>
+
+<!--아바타, 로그인, 회원가입-->
+    <div class="navbar-nav" >
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown mx-1 btn">
+                {% if user.is_active %}
+                <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
+                    <img src="{% url 'avata' user.id%}" class="avata-sm">
+                    <i class="fas fa-user"></i>&nbsp{{user.username }} </a>
+                <div class="dropdown-menu"  style="background-color: #343A40;">
+                    <a class="dropdown-item text-white" href="{% url 'mypage_index' user.id%}">Mypage</a>
+                    <a class="dropdown-item text-white" href="{% url 'avata_add' user.id %}">Avata</a>
+                    <a class="dropdown-item text-white" href="{% url 'logout' %}">Logout</a>
+                    <a class="dropdown-item text-white" href="{% url 'password_change' %}">Change Password</a>
+                </div>
+                {% else %}
+                <a class="nav-link dropdown-toggle ml-auto text-white" href="#"
+                   data-toggle="dropdown">
+                    <i class="fas fa-user"></i>&nbsp Anonymous</a>
+                <div class="dropdown-menu" style="background-color: #343A40;">
+                    <a class="dropdown-item text-white" href="{% url 'login' %}">Login</a>
+                    <a class="dropdown-item text-white" href="{% url 'register' %}">Register</a>
+                </div>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+
+</nav>
