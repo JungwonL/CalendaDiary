@@ -21,16 +21,10 @@ class HomeView(ListView):
 		context['schedule_list'] = schedules
 		return context
 
-class Home2View(ListView):
-	model = Schedule
-	context_object_name = 'Schedule_list'
-	template_name = 'home2.html'
-
 
 
 class CalUpdateView(TemplateView):
 	template_name = 'home_cal_update.html'
-
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)

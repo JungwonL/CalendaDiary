@@ -12,6 +12,8 @@
         [{{schedule.schedule_date|date:"Y년 m월 d일"}}]: {{schedule.title}}/ {{schedule.description}}
         <a href="{% url 'schedule:update' schedule.pk %}" class="btn btn-dark btn-sn">
         <i class="fas fa-pencil-alt"></i>변경</a>
+        <a href="{% url 'schedule:delete' schedule.pk %}" class="btn btn-dark btn-sn">
+        <i class="fas fa-eraser"></i>삭제</a>
     </li>
     <br/>
     {% endfor %}

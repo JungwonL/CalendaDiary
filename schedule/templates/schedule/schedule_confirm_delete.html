@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block extra-style %}
+{% include "schedule_style.html" %}
+{% endblock %}
+{% block title %}schedule_delete.html{% endblock %}
+{% block content %}
+<div class ="scheduleDetail">
+ <h1>Bookmark Delete</h1>
+ <br>
+ <form action="." method="post">{% csrf_token %}
+ <li>날짜 {{object.schedule_date}}의 일정은 {{ object }} 입니다 <br> 지우겠습니까?</li>
+ <input type="submit" value="Confirm" class="btn btn-danger btn-sm" />
+ </form>
+</div>
+
+{% endblock %}

@@ -63,3 +63,12 @@ class ScheduleUpdateView(LoginRequiredMixin, UpdateView):
     class Meta:
         exclude = ["user"]
 
+class ScheduleDeleteView(LoginRequiredMixin, DeleteView):
+    model = Schedule
+    def get_success_url(self):
+        dateAndhour = self.object.schedule_date
+        date = dateAndhour.date()
+        return reverse_lazy('schedule:detail', kwargs={'date': date})
+
+
+
