@@ -1,17 +1,47 @@
 {% extends "base.html" %}
-{% load widget_tweaks %}
-{% block title %}login.html{% endblock %}
-{% block content %}
-
-<img src="{% url 'avata' user.id%}" class="avata">
-<h1>수정을 해볼까아</h1>
-<h1>유저 ID임:{{user.username}}</h1>
-<h2>유저 이름 : {{user.first_name}}</h2>
-<h2>유저 성 : {{user.last_name}}</h2>
-<h2>유저 이메일 : {{user.email}}</h2>
-<form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type='submit' value="OK">
-</form>
+{% block extra-style %}
+{% include "schedule_style.html" %}
 {% endblock %}
+{% load widget_tweaks %}
+{% block title %}mypage_form.html{% endblock %}
+{% block content %}
+<div class="scheduleDetail">
+<div class="thx" align ="center">
+ <img src="{% url 'avata' user.id%}" width ="45%" margin-bottom ="3%">
+</div>
+<table>
+    <thead>
+        <th colspan = '2' align="center">
+        </th>
+    </tr>
+</thead>
+    <tbody>
+
+<tr>
+    <td>
+    유저 ID:</td><td>{{user.username}}
+    </td>
+</tr>
+<tr>
+    <td>유저 이메일 :</td><td> {{form.phoneNumber|add_class:"form-control" |attr:"autofocus" }}
+   </td>
+</tr>
+<tr>
+    <td>
+        유저 닉네임 :</td><td> {{form.nickname|add_class:"form-control" |attr:"autofocus" }}
+   </td>
+</tr>
+<td> 유저 주소 :</td><td> {{form.address|add_class:"form-control" |attr:"autofocus" }}</td>
+
+<tr>
+</tr>
+<tr>
+    </td></tr>
+     </tbody>
+</table>
+    <button type="submit" class="btn btn-info btn-dark" style="float:right;">
+                        <i class="fas fa-sign-in-alt"> Login</i>
+</div>
+{% endblock %}
+
+    <!--                {{ form.address|add_class:"form-control"|attr:"autofocus" }}-->

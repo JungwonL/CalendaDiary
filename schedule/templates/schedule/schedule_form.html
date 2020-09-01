@@ -21,7 +21,7 @@
         <div class="form-group row offset-sm-3">
             {{ form.schedule_date|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
             <div class="col-sm-5">
-                {{ form.schedule_date|add_class:"form-control" }}
+                {{ form.schedule_date|add_class:"form-control" | attr:"readonly" }}
             </div>
         </div>
         <div class="form-group row offset-sm-3">

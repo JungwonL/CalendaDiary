@@ -1,13 +1,44 @@
 {% extends "base.html" %}
+{% block extra-style %}
+{% include "schedule_style.html" %}
+{% endblock %}
 {% load widget_tweaks %}
-{% block title %}login.html{% endblock %}
+{% block title %}mypage.html{% endblock %}
 {% block content %}
-<img src="{% url 'avata' user.id%}" class="avata-lg">
-<h1>유저 ID:{{user.username}}</h1>
-<h2>유저 이메일 : {{object.phoneNumber}}</h2>
-<h2>유저 닉네임 : {{object.nickname}}</h2>
-<h2>유저 주소 : {{object.address}}</h2>
-<h1><a href="{% url 'mypage_add'%}">유저 정보 추가하기</a></h1>
-<h1><a href="{% url 'mypage_update'%}">유저 정보 변경하기</a></h1>
-</body>
+<div class="scheduleDetail">
+<div class="thx" align ="center">
+ <img src="{% url 'avata' user.id%}" width ="45%" margin-bottom ="3%">
+</div>
+<table>
+    <thead>
+        <th colspan = '2' align="center">
+        </th>
+    </tr>
+</thead>
+    <tbody>
+
+<tr>
+    <td>
+    유저 ID:</td><td>{{user.username}}
+    </td>
+</tr>
+<tr>
+    <td>유저 이메일 :</td><td> {{object.phoneNumber}}
+   </td>
+</tr>
+<tr>
+    <td>
+        유저 닉네임 :</td><td> {{object.nickname}}
+   </td>
+</tr>
+<td> 유저 주소 :</td><td> {{object.address}}</td>
+
+<tr>
+    <td colspan = '2' align ="left"><a href="{% url 'mypage_add'%}">유저 정보 추가하기</a></td>
+</tr>
+<tr>
+    <td colspan = '2' align ="left"><a href="{% url 'mypage_update'%}">유저 정보 변경하기</a></td></tr>
+     </tbody>
+</table>
+</div>
 {% endblock %}
