@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from schedule.models import Schedule
 from django.urls import reverse_lazy
+from webCalendarDiary.views import OwneronlyMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
-import datetime
+import datetime, os, sys
+# sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname())))
 
 
 class ScheduleLV(ListView):
@@ -33,7 +35,6 @@ class ScheduleCreateView(LoginRequiredMixin, CreateView):
     model = Schedule
     context_object_name = 'schedule'
 
-
     fields = ['schedule_date', 'title', 'description']
     success_url = reverse_lazy('schedule:detail')
 
@@ -51,4 +52,17 @@ class ScheduleCreateView(LoginRequiredMixin, CreateView):
 
     class Meta:
         exclude = ["user"]
+
+
+class ScheduleUpdateView(OwneronlyMixin, UpdateView):
+    model = Schedule
+    fields = ['schedule_date', 'title', 'description']
+    success_url = reverse_lazy('schedule:detail')
+
+    response = super().form_valid()
+
+
+class ScheduleDeleteView(OwneronlyMixin, DeleteView):
+    model = Schedule
+    success_url = reverse_lazy('shedule:detail')
 

@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, AccessMixin
 from mypage.models import *
 from webCalendarDiary import settings
 from django.http import HttpResponse
@@ -30,6 +30,19 @@ class UserCreateView(CreateView):
 
 class UserCreateDoneTV(TemplateView):
 	template_name = 'registration/register_done.html'
+
+
+# --- User Access(Update/Delete)
+class OwneronlyMixin(AccessMixin):
+    raise_exception = True
+    permission_denied_message = "Owner only can update/delete the object"
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.request.user != self.object.owner:
+            self.handle_no_permission()
+        return super().get(request, *args, **kwargs)
+
 
 # -- Avata Creation
 class AvataView(LoginRequiredMixin, CreateView):
