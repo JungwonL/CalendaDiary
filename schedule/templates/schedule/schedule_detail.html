@@ -6,22 +6,29 @@
 {% block content %}
 <div class="scheduleDetail">
     {% if user.is_active%}
-        <h3>{{schedule.schedule_date}}</h3>
-            {% for schedule in schedule.schedules %}
-            <li>
-                [{{schedule.schedule_date|date:"Y년 m월 d일"}}]: {{schedule.title}}/ {{schedule.description}}
-            </li><br/>
-            {% endfor %}
-
+    <h3>{{schedule.schedule_date}}</h3>
+    {% for schedule in schedule.schedules %}
+    <li>
+        [{{schedule.schedule_date|date:"Y년 m월 d일"}}]: {{schedule.title}}/ {{schedule.description}}
         <div class="text-right mr-3">
+            <a href="{% url 'schedule:update' schedule.pk %}" class="btn btn-info btn-sn">
+                <i class="fas fa-pencil-alt"></i>변경</a>
+        </div>
+    </li>
+    <br/>
+    {% endfor %}
+
+    <div class="text-right mr-3">
         <a href="{% url 'schedule:add' schedule.date %}" class="btn btn-dark btn-sn">
             <i class="fas fa-pencil-alt"></i>일정 추가</a>
-        </div>
+    </div>
 
     {% else %}
     <div id="loginBefore">
         <h5>로그인 후 이용해주세요. :)</h5></br>
-          <button class="btn btn-dark" onclick="location.href='{% url 'login' %}'" ><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button class="btn btn-dark" onclick="location.href='{% url 'login' %}'"><i class="fas fa-sign-in-alt"></i>
+            Login
+        </button>
 
     </div>
     {% endif %}
