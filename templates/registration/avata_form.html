@@ -1,25 +1,31 @@
 {% extends "base.html" %}
 {% block extra-style %}
-{% include "schedule_style.html" %}
+{% include "register_style.html" %}
 {% endblock %}
 {% load widget_tweaks %}
 {% block title %}AvatarChange{% endblock %}
 {% block content %}
-<h1> {{user}}의 Avata 설정 </h1>
-<img src="{% url 'avata' user.id%}" class="avata">
+<div id="avata" class="text-white" >
+<h2> 프로필 사진 </h2>
+<br/>
+
 <form action="." method="post">
     {% csrf_token %}
-    <div class="form-group row">
-        {{ form.image|add_label_class:"col-form-label col-sm-2 ml-3 font-weightbold" }}
-        <div class="col-sm-5">
-            {{ form.image}}
-        </div>
-    </div>
- <div class="form-group">
- <div class="offset-sm-2 col-sm-5">
- <input type="submit" value="확인" class="btn btn-info"/>
- </div>
- </div>
-</form>
+    <table>
+        <tbody>
+        <tr>
+            <th><img src="{% url 'avata' user.id%}" class="avata"></th>
+            <th>{{  form.image }}</th>
+        </tr>
+        </tbody>
+    </table>
+     <div class="form-group">
 
+         <div class="offset-sm-2 col-sm-5">
+             <i class="fad fa-check"></i>
+            <input type="submit" value="확인" class="btn btn-info btn-dark"/>
+         </div>
+     </div>
+</form>
+</div>
 {% endblock %}
