@@ -9,7 +9,7 @@ setInterval(function(){
             if (today.getMonth()+1+count < 10) {
               id_chk = String(today.getFullYear()) + "0" + String(today.getMonth()+1+count) + String(idx);
             }
-            document.getElementById(id_chk).style.color="RGB(173, 64, 64)";
+            document.getElementById(id_chk).style.color="#ff5e5e";  //파란색:"#5e91ff";
             let item = document.getElementById(id_chk);
             item.innerHTML = " " + arrCal[idx] +"</br>"+ item.innerHTML;
         }
