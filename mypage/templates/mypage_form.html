@@ -7,6 +7,7 @@
 {% block content %}
 <div class="scheduleDetail">
 <img src="{% url 'avata' user.id%}" class="avata-lg">
+      <h3>Profile of {{user.username}}</h3>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group row offset-sm-3">
@@ -27,7 +28,9 @@
                 {{ form.nickname|add_class:"form-control" }}
             </div>
         </div>
-    <input type='submit' value="OK">
+    <button type="submit" class="btn btn-secondary">
+    <i class="fa fa-arrow-circle-right fa-lg"></i> submit
+    </button>
 </form>
 </div>
 {% endblock %}
