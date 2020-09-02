@@ -5,9 +5,8 @@
 <img src="{% url 'avata' user.id%}" class="avata-lg">
 <h1>유저 ID:{{user.username}}</h1>
 <h2>유저 이메일 : {{object.phoneNumber}}</h2>
-<h2>유저 닉네임 : {{object.nickname}}</h2>
-<h2>유저 주소 : {{object.address}}</h2>
-<h1><a href="{% url 'mypage_add'%}">유저 정보 추가하기</a></h1>
+<h2>유저 닉네임 : {{object.address}}</h2>
+<h2>유저 주소 : {{object.nickname}}</h2>
 <h1><a href="{% url 'mypage_update'%}">유저 정보 변경하기</a></h1>
 </body>
 {% endblock %}
