@@ -7,18 +7,18 @@
 
 {% block content %}
 <div id="avata" class="text-white" >
-<h2 style="text-align:center;"> 프로필 사진 </h2>
+<h2 style="text-align:center;"> Avata </h2>
 <br/><br/>
 
-<form action="." method="post">
+<form action="." method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
         <tbody>
         <tr>
-            <th style="text-align: center;"><img src="{% url 'avata' user.id%}" class="avata-lg"></th>
+            <th style="text-align: center;"><img src="{% url 'avata' user.id%}" style="border-radius: 50%; width: 150px; height: 150px;"></th>
             <th style="text-align: left;">{{  form.image }}</th>
             <th style="text-align: center;">
-                <input type="submit" class="btn-dark fas" value="&#xf00c;" style="border-width: 0; padding: 2px 2px;"/>
+                <input type="submit" class="btn-dark fas fa-2x" value="&#xf00c;" style="border-width: 0; padding: 2px 2px;"/>
             </th>
         </tr>
         </tbody>
