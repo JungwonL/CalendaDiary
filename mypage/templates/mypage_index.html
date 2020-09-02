@@ -1,13 +1,44 @@
 {% extends "base.html" %}
+{% block extra-style %}
+{% include "schedule_style.html" %}
+{% endblock %}
 {% load widget_tweaks %}
-{% block title %}login.html{% endblock %}
+{% block title %}Profile.html{% endblock %}
 {% block content %}
-<img src="{% url 'avata' user.id%}" class="avata-lg">
-<h1>유저 ID:{{user.username}}</h1>
-<h2>유저 이메일 : {{object.phoneNumber}}</h2>
-<h2>유저 닉네임 : {{object.nickname}}</h2>
-<h2>유저 주소 : {{object.address}}</h2>
-<h1><a href="{% url 'mypage_add'%}">유저 정보 추가하기</a></h1>
-<h1><a href="{% url 'mypage_update'%}">유저 정보 변경하기</a></h1>
-</body>
+<div class="scheduleDetail">
+    <img src="{% url 'avata' user.id%}" class="avata-lg">
+    <h3>Profile of {{user.username}}</h3>
+    <div class="object-group row offset-sm-3">
+    </div>
+    <table>
+        <tr>
+            <th>
+                <h3>이메일 : </h3>
+            </th>
+            <th>
+                <h3>{{object.phoneNumber}}</h3>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <h3>닉네임 : </h3>
+            </th>
+            <th>
+                <h2>{{object.nickname}}</h2>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <h3>주소 : </h3>
+            </th>
+            <th>
+                <h2>{{object.address}}</h2>
+            </th>
+        </tr>
+    </table>
+    <div padding = "10px 0 0 0"></div>
+        <a href="{% url 'mypage_update'%}" class="btn btn-secondary">
+    <i class="fa fa-arrow-circle-right fa-lg"></i> 유저 정보 변경하기
+        </a>
+</div>
 {% endblock %}

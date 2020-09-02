@@ -10,4 +10,4 @@
 }
 .avata-sm {border-radius: 50%;width: 25px;height: 25px; }
 .avata {border-radius: 50%; width: 50px; height: 50px; }
-.avata-lg { border-radius: 50%; width: 75px; height: 75px; }
+.avata-lg { border-radius: 0%; width: 200px; height: 200px; margin: 0 0 20px 0; }
