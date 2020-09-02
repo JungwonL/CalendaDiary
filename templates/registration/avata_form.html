@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block extra-style %}
 {% include "register_style.html" %}
+{% include "top_design.html" %}
 {% endblock %}
 {% load widget_tweaks %}
 {% block title %}AvatarChange{% endblock %}
@@ -39,11 +40,11 @@
             {{ form.image}}
         </div>
     </div>
- <div class="form-group">
- <div class="offset-sm-2 col-sm-5">
- <input type="submit" value="확인" class="btn btn-info"/>
- </div>
- </div>
+    <div class="form-group">
+        <div class="offset-sm-2 col-sm-5">
+            <input type="submit" value="확인" class="btn btn-info"/>
+        </div>
+    </div>
 </form>
 
 {% endblock % #}

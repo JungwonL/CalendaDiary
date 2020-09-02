@@ -38,7 +38,7 @@ calHtml += `
                 {% if user.is_active %}
                 <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
                     <img src="{% url 'avata' user.id%}" class="avata-sm">
-                    <i class="fas fa-user"></i>&nbsp{{user.username }} </a>
+                    &nbsp{{user.username }} </a>
                 <div class="dropdown-menu"  style="background-color: #343A40;">
                     <a class="dropdown-item text-white" href="{% url 'mypage_index' user.id%}">Mypage</a>
                     <a class="dropdown-item text-white" href="{% url 'avata_add' user.id %}">Avata</a>
@@ -48,8 +48,7 @@ calHtml += `
 
 
                 {% else %}
-                <a class="nav-link dropdown-toggle ml-auto text-white" href="#"
-                   data-toggle="dropdown">
+                <a class="nav-link dropdown-toggle ml-auto text-white" href="#"data-toggle="dropdown">
                     <i class="fas fa-user"></i>&nbsp Anonymous</a>
                 <div class="dropdown-menu" style="background-color: #343A40;">
                     <a class="dropdown-item text-white" href="{% url 'login' %}">Login</a>

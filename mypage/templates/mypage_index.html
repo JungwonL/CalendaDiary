@@ -1,44 +1,34 @@
 {% extends "base.html" %}
 {% block extra-style %}
 {% include "schedule_style.html" %}
+{% include "top_design.html" %}
 {% endblock %}
 {% load widget_tweaks %}
 {% block title %}Profile.html{% endblock %}
 {% block content %}
 <div class="scheduleDetail">
     <img src="{% url 'avata' user.id%}" class="avata-lg">
-    <h3>Profile of {{user.username}}</h3>
+    <h2>Profile of {{user.username}}</h2>
     <div class="object-group row offset-sm-3">
     </div>
-    <table>
+    <table class="mypageTable">
         <tr>
-            <th>
-                <h3>P.H : </h3>
-            </th>
-            <th>
-                <h3>{{object.phoneNumber}}</h3>
-            </th>
+            <td class="mypageTd">Phone : </td>
+            <td class="mypageTd">{{object.phoneNumber}}</td>
         </tr>
         <tr>
-            <th>
-                <h3>닉네임 : </h3>
-            </th>
-            <th>
-                <h2>{{object.nickname}}</h2>
-            </th>
+            <td class="mypageTd">Nick Name : </td>
+            <td class="mypageTd">{{object.nickname}}</td>
         </tr>
         <tr>
-            <th>
-                <h3>주소 : </h3>
-            </th>
-            <th>
-                <h2>{{object.address}}</h2>
-            </th>
+            <td class="mypageTd">Address : </td>
+            <td class="mypageTd">{{object.address}}</td>
         </tr>
     </table>
-    <div padding = "10px 0 0 0"></div>
-        <a href="{% url 'mypage_update'%}" class="btn btn-secondary">
-    <i class="fa fa-arrow-circle-right fa-lg"></i> 유저 정보 변경하기
-        </a>
+
+    <div style="margin:1%">
+        <a href="{% url 'mypage_update' %}" class="btn btn-dark">
+            <i class="fa fa-arrow-circle-right fa-lg"></i> 변경하기</a>
+    </div>
 </div>
 {% endblock %}
