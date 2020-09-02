@@ -4,7 +4,7 @@
 {% block content %}
 <h1> {{user}}의 Avata 설정 </h1>
 <img src="{% url 'avata' user.id%}" class="avata">
-<form action="." method="post">
+<form action="." method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group row">
         {{ form.image|add_label_class:"col-form-label col-sm-2 ml-3 font-weightbold" }}
