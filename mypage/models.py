@@ -16,10 +16,10 @@ class Avata(models.Model):
 class UserInfo(models.Model):
 	owner = models.OneToOneField(User, on_delete=models.CASCADE,
 								 verbose_name='User', blank=True, null=True)
-	phoneNumber = models.CharField(verbose_name='P.H', max_length=20)
-	address = models.CharField(verbose_name='주소', max_length=100,
+	phoneNumber = models.CharField(verbose_name='Phone', max_length=20)
+	address = models.CharField(verbose_name='Address', max_length=100,
 							   blank=True)
-	nickname = models.CharField(verbose_name='닉네임', max_length=12, blank=True)
+	nickname = models.CharField(verbose_name='Nick Name', max_length=12, blank=True)
 
 	def __str__(self):
 		return self.owner

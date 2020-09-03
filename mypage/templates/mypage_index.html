@@ -13,22 +13,22 @@
     </div>
     <table class="mypageTable">
         <tr>
-            <td class="mypageTd">Phone : </td>
-            <td class="mypageTd">{{object.phoneNumber}}</td>
-        </tr>
-        <tr>
-            <td class="mypageTd">Nick Name : </td>
+            <td class="mypageTd" style="padding:1.5% 0 3.4% 2%">Nick Name : </td>
             <td class="mypageTd">{{object.nickname}}</td>
         </tr>
         <tr>
-            <td class="mypageTd">Address : </td>
+            <td class="mypageTd" style="padding:3.2% 0 3.4% 2%">Phone : </td>
+            <td class="mypageTd">{{object.phoneNumber}}</td>
+        </tr>
+        <tr>
+            <td class="mypageTd" style="padding:3.2% 0 3.4% 2%">Address : </td>
             <td class="mypageTd">{{object.address}}</td>
         </tr>
     </table>
 
     <div style="margin:1%">
         <a href="{% url 'mypage_update' %}" class="btn btn-dark">
-            <i class="fa fa-arrow-circle-right fa-lg"></i> 변경하기</a>
+            <i class="fa fa-arrow-circle-right fa-lg"></i>변경하기</a>
     </div>
 </div>
 {% endblock %}
