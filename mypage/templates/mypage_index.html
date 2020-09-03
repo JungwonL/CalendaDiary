@@ -8,7 +8,10 @@
 {% block content %}
 <div class="scheduleDetail">
     <img src="{% url 'avata' user.id%}" class="avata-lg">
-    <h2>Profile of {{user.username}}</h2>
+    <div>
+    <a href="{% url 'avata_add' user.id %}" class="btn btn-dark" style = "font-size:0.5em;" ><i class="fa fa-arrow-circle-right fa-lg"></i> 아바타 변경</a></a>
+    </div>
+    <h1>Profile of {{user.username}}</h1>
     <div class="object-group row offset-sm-3">
     </div>
     <table class="mypageTable">
@@ -28,7 +31,7 @@
 
     <div style="margin:1%">
         <a href="{% url 'mypage_update' %}" class="btn btn-dark">
-            <i class="fa fa-arrow-circle-right fa-lg"></i>변경하기</a>
+            <i class="fa fa-arrow-circle-right fa-lg"></i> 변경하기</a>
     </div>
 </div>
 {% endblock %}
