@@ -32,20 +32,24 @@ calHtml += `
     </div>
 
     {# 아바타, 로그인, 회원가입 #}
-    <div class="navbar-nav" >
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown mx-1 btn">
-                {% if user.is_active %}
-                <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
-                    <img src="{% url 'avata' user.id%}" class="avata-sm">
-                    &nbsp{{user.username }} </a>
-                <div class="dropdown-menu"  style="background-color: #343A40;">
-                    <a class="dropdown-item text-white" href="{% url 'mypage_index' user.id%}">Mypage</a>
-                    <a class="dropdown-item text-white" href="{% url 'avata_add' user.id %}">Avata</a>
-                    <a class="dropdown-item text-white" href="{% url 'logout' %}">Logout</a>
-                    <a class="dropdown-item text-white" href="{% url 'password_change' %}">Change Password</a>
-                </div>
+    <div class="navbar-nav" style="float: right;">
+        <ul class="navbar-nav mr-auto" style="float: right;">
+            <li class="nav-item dropdown mx-1 btn" style="left: auto; right:0; margin-right:-10px;">
 
+                {% if user.is_active %}
+                <div class="w3-container">
+                    <div class="w3-dropdown-hover w3-right">
+                        <button class="w3-dropdown-hover" style="background-color: #343A40; border-width: 0;">
+                            <img src="{% url 'avata' user.id%}" class="avata-sm">
+                            &nbsp{{user.username }} </button>
+                        <div class="w3-dropdown-content w3-bar-block"  style="background-color: #343A40; right:0;">
+                            <a class="w3-bar-item w3-button text-white" style="text-align: right;" href="{% url 'mypage_index' user.id%}">Mypage</a>
+                            <a class="w3-bar-item w3-button text-white" style="text-align: right;" href="{% url 'avata_add' user.id %}">Avata</a>
+                            <a class="w3-bar-item w3-button text-white" style="text-align: right;" href="{% url 'logout' %}">Logout</a>
+                            <a class="w3-bar-item w3-button text-white" style="text-align: right;" href="{% url 'password_change' %}">Change Password</a>
+                        </div>
+                    </div>
+                </div>
 
                 {% else %}
                 <a class="nav-link dropdown-toggle ml-auto text-white" href="#"data-toggle="dropdown">
