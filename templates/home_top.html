@@ -39,7 +39,7 @@ calHtml += `
                 {% if user.is_active %}
                 <div class="w3-container">
                     <div class="w3-dropdown-hover w3-right">
-                        <button class="w3-dropdown-hover" style="background-color: #343A40; border-width: 0;">
+                        <button class="w3-dropdown-hover text-white" style="background-color: #343A40; border-width: 0;">
                             <img src="{% url 'avata' user.id%}" class="avata-sm">
                             &nbsp{{user.username }} </button>
                         <div class="w3-dropdown-content w3-bar-block"  style="background-color: #343A40; right:0;">
@@ -52,11 +52,16 @@ calHtml += `
                 </div>
 
                 {% else %}
-                <a class="nav-link dropdown-toggle ml-auto text-white" href="#"data-toggle="dropdown">
-                    <i class="fas fa-user"></i>&nbsp Anonymous</a>
-                <div class="dropdown-menu" style="background-color: #343A40;">
-                    <a class="dropdown-item text-white" href="{% url 'login' %}">Login</a>
-                    <a class="dropdown-item text-white" href="{% url 'register' %}">Register</a>
+                <div class="w3-container">
+                    <div class="w3-dropdown-hover w3-right">
+                        <button class="w3-dropdown-hover  text-white" style="background-color: #343A40; border-width: 0;">
+                            <i class="fas fa-user"></i>&nbsp Anonymous </button>
+
+                        <div class="w3-dropdown-content w3-bar-block"  style="background-color: #343A40; right:0;">
+                            <a class="w3-bar-item w3-button text-white" style="text-align: right;" href="{% url 'login' %}">Login</a>
+                            <a class="w3-bar-item w3-button text-white" style="text-align: right;" href="{% url 'register' %}">Register</a>
+                        </div>
+                    </div>
                 </div>
 
                 {% endif %}
