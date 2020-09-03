@@ -7,44 +7,45 @@
 {% block title %}AvatarChange{% endblock %}
 
 {% block content %}
-<div id="avata" class="text-white" >
-<h2 style="text-align:center;"> Avata </h2>
-<br/><br/>
+<div class="scheduleDetail">
+    <div id="avata" class="text-white" >
+    <h2> Avata </h2>
+    <br/><br/>
 
-<form action="." method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <table>
-        <tbody>
-        <tr>
-            <th style="text-align: center;"><img src="{% url 'avata' user.id%}" style="border-radius: 50%; width: 150px; height: 150px;"></th>
-            <th style="text-align: left;">{{  form.image }}</th>
-            <th style="text-align: center;">
-                <input type="submit" class="btn-dark fas fa-2x" value="&#xf00c;" style="border-width: 0; padding: 2px 2px;"/>
-            </th>
-        </tr>
-        </tbody>
-    </table>
+    <form action="." method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tbody>
+            <tr>
+                <th style="text-align: center;"><img src="{% url 'avata' user.id%}" style="border-radius: 50%; width: 150px; height: 150px;"></th>
+                <th style="text-align: left;">{{  form.image }}</th>
+                <th style="text-align: center;">
+                    <input type="submit" class="btn-dark fas fa-2x" value="&#xf00c;" style="border-width: 0; padding: 2px 2px;"/>
+                </th>
+            </tr>
+            </tbody>
+        </table>
 
-</form>
+    </form>
+    </div>
+    {% endblock %}
+
+    {# % block content %}
+    <h1> {{user}}의 Avata 설정 </h1>
+    <img src="{% url 'avata' user.id%}" class="avata">
+    <form action="." method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group row">
+            {{ form.image|add_label_class:"col-form-label col-sm-2 ml-3 font-weightbold" }}
+            <div class="col-sm-5">
+                {{ form.image}}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="offset-sm-2 col-sm-5">
+                <input type="submit" value="확인" class="btn btn-info"/>
+            </div>
+        </div>
+    </form>
 </div>
-{% endblock %}
-
-{# % block content %}
-<h1> {{user}}의 Avata 설정 </h1>
-<img src="{% url 'avata' user.id%}" class="avata">
-<form action="." method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="form-group row">
-        {{ form.image|add_label_class:"col-form-label col-sm-2 ml-3 font-weightbold" }}
-        <div class="col-sm-5">
-            {{ form.image}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="offset-sm-2 col-sm-5">
-            <input type="submit" value="확인" class="btn btn-info"/>
-        </div>
-    </div>
-</form>
-
 {% endblock % #}
