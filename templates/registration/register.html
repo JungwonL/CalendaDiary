@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+{% block extra-style %}
+{% include "schedule_style.html" %}
+{% include "top_design.html" %}
+{% endblock %}
 {% load widget_tweaks %}
 {% block title %}register.html{% endblock %}
 {% block content %}
-<div class="jumbotron">
-<div class="container vertical-center"  style="width:auto;">
-    <form action="." method="post" class="card pt-5" style="background-color: #343A40;">
-        {% csrf_token %}
-
+<div class="scheduleDetail">
+    <form action="." method="post" style="background-color: #343A40;">{% csrf_token %}
         {% if form.errors %}
         <div class="alert alert-danger">
             <div class="font-weight-bold">
@@ -15,37 +16,32 @@
             {{ form.errors }}
         </div>
         {% endif %}
-            <div class="col">
-                <h2 style="text-align:center; color:white; margin-bottom:2%">registration</h2>
-            </div>
-            <div class="form-group row justify-content-md-center">
-                <div class="col-form-label col-sm-1 ml-2 text-white">ID: </div>
-                <div class="col-sm-3">
-                    {{ form.username|add_class:"form-control"|attr:"autofocus" }}
-                </div>
-            </div>
-            <div class="form-group row justify-content-md-center">
-                <div class="col-form-label col-sm-1 ml-2 text-white">PW: </div>
-                <div class="col-sm-3">
-                    {{ form.password1|add_class:"form-control" }}
-                </div>
-            </div>
-     <div class="form-group row justify-content-md-center">
-                <div class="col-form-label col-sm-1 ml-2 text-white">Conf.PW: </div>
-                <div class="col-sm-3">
-                    {{ form.password2|add_class:"form-control" }}
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="offset-sm-1">
 
-                    <button type="submit" class="btn btn-info btn-dark" style="float:right;">
-                        <i class="fas fa-sign-in-alt"> Register</i>
-                    </button>
-                    <input type="hidden" name="next" value="{{ next }}"/>
-                </div>
+        <h2  style="margin-bottom:2%;">Registration</h2>
+        <div class="form-group row justify-content-md-center">
+            <div class="col-form-label col-sm-1 ml-2">ID : </div>
+            <div class="col-sm-3">
+                {{ form.username|add_class:"form-control"|attr:"autofocus" }}
             </div>
-        </form>
-</div>
+        </div>
+        <div class="form-group row justify-content-md-center">
+            <div class="col-form-label col-sm-1 ml-2">PW : </div>
+            <div class="col-sm-3">
+                {{ form.password1|add_class:"form-control" }}
+            </div>
+        </div>
+        <div class="form-group row justify-content-md-center">
+            <div class="col-form-label col-sm-1 ml-2">Conf.PW : </div>
+            <div class="col-sm-3">
+                {{ form.password2|add_class:"form-control" }}
+            </div>
+        </div>
+        <div class="submitButton">
+            <button type="submit" class="btn btn-dark">
+                <i class="fas fa-sign-in-alt"> Register</i>
+            </button>
+            <input type="hidden" name="next" value="{{ next }}"/>
+        </div>
+    </form>
 </div>
 {% endblock %}
