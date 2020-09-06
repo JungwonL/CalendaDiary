@@ -39,6 +39,9 @@ urlpatterns = [
 	# 달력
 	path('', HomeView.as_view(), name='home'),
 	path('prev/', CalUpdateView.as_view(), name='cal'),
+
+	# 스케줄링
 	path('schedule/', include('schedule.urls')),
+	path('tinymce/', include('tinymce.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

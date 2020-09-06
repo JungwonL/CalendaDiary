@@ -4,8 +4,7 @@ from schedule.models import Schedule
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
-import datetime, os, sys
-# sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname())))
+import datetime
 
 
 class ScheduleDV(LoginRequiredMixin, DetailView):
@@ -29,7 +28,7 @@ class ScheduleCreateView(LoginRequiredMixin, CreateView):
     model = Schedule
     context_object_name = 'schedule'
 
-    fields = ['schedule_date', 'title', 'description']
+    fields = ['schedule_date', 'title', 'description', 'content']
 
     def form_valid(self, form):
         form.instance.user_id_fk = self.request.user
@@ -49,7 +48,7 @@ class ScheduleCreateView(LoginRequiredMixin, CreateView):
 
 class ScheduleUpdateView(LoginRequiredMixin, UpdateView):
     model = Schedule
-    fields = ['schedule_date', 'title', 'description']
+    fields = ['schedule_date', 'title', 'description', 'content']
 
     def form_valid(self, form):
         form.instance.user_id_fk = self.request.user

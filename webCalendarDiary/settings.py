@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'schedule.apps.ScheduleConfig',
     'mypage.apps.mypageConfig', #개인정보페이지config
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -130,6 +131,9 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
+TINYMCE_COMPRESSOR = False
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
